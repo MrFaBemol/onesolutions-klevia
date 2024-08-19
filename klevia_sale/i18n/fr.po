@@ -1,0 +1,43 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* klevia_sale
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-08-19 12:04+0000\n"
+"PO-Revision-Date: 2024-08-19 12:04+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: klevia_sale
+#: model:ir.model.fields,field_description:klevia_sale.field_sale_order__include_sow
+msgid "Include Statement of Work"
+msgstr "Inclure le détail des prestations"
+
+#. module: klevia_sale
+#: model:ir.model,name:klevia_sale.model_sale_order
+msgid "Sales Order"
+msgstr "Bon de commande"
+
+#. module: klevia_sale
+#: model_terms:ir.ui.view,arch_db:klevia_sale.view_order_form
+msgid "Start typing..."
+msgstr "Commencez à écrire..."
+
+#. module: klevia_sale
+#: model:ir.model.fields,field_description:klevia_sale.field_sale_order__statement_of_work
+#: model_terms:ir.ui.view,arch_db:klevia_sale.report_saleorder_document
+#: model_terms:ir.ui.view,arch_db:klevia_sale.view_order_form
+msgid "Statement of Work"
+msgstr "Détail des Prestations"
+
+#. module: klevia_sale
+#: model_terms:ir.ui.view,arch_db:klevia_sale.view_order_form
+msgid "Statement of work"
+msgstr "Détail des prestations"

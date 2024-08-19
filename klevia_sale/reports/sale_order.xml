@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <template id="report_saleorder_document" inherit_id="sale.report_saleorder_document" >
+
+            <xpath expr="//div[hasclass('page')]" position="after">
+                <div class="page" t-if="doc.include_sow" style="page-break-before: always;">
+                    <div class="oe_structure"/>
+
+                    <div>
+                        <h2>Statement of Work</h2>
+                    </div>
+                    <div t-field="doc.statement_of_work"/>
+                </div>
+            </xpath>
+        </template>
+
+    </data>
+</odoo>
