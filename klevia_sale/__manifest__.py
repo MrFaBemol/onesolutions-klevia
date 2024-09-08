@@ -1,7 +1,7 @@
 {
     'name': "Klevia Sale Module",
     'category': "Sales",
-    'version': "17.0.1.0.0",
+    'version': "17.0.1.0.1",
     'installable': True,
 
     'license': "AGPL-3",

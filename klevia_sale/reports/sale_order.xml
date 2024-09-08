@@ -14,6 +14,25 @@
                     <div t-field="doc.statement_of_work"/>
                 </div>
             </xpath>
+
+
+<!--            Full column for UOM-->
+
+            <xpath expr="//td[@name='td_quantity']/span[@t-field='line.product_uom']" position="replace" />
+            <xpath expr="//td[@name='td_quantity']/span[@t-if='line.product_packaging_id']" position="replace" />
+
+            <xpath expr="//th[@name='th_quantity']" position="after">
+                <th name="th_uom" />
+            </xpath>
+            <xpath expr="//td[@name='td_quantity']" position="after">
+                <td name="td_uom" class="text-end">
+                    <span t-field="line.product_uom">units</span>
+                    <span t-if="line.product_packaging_id">
+                        (<span t-field="line.product_packaging_qty" t-options='{"widget": "integer"}'/> <span t-field="line.product_packaging_id"/>)
+                    </span>
+                </td>
+            </xpath>
+
         </template>
 
     </data>
