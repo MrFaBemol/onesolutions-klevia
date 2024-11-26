@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="project_tools_access_group" model="res.groups">
+            <field name="name">Can use project tools</field>
+            <field name="category_id" ref="base.module_category_hidden"/>
+        </record>
+
+    </data>
+</odoo>

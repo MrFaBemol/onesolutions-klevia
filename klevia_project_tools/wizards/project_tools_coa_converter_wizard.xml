@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="project_tools_coa_converter_wizard_form" model="ir.ui.view">
+            <field name="name">project.tools.coa.converter.wizard.form</field>
+            <field name="model">project.tools.coa.converter.wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <field name="state" invisible="1"/>
+                    <sheet>
+                        <group invisible="state != 'new'">
+                            <field name="file_from_name" invisible="1" />
+                            <field name="file_to_name" invisible="1" />
+                            <field name="file_from" widget="binary" filename="file_from_name" />
+                            <field name="file_to" widget="binary" filename="file_to_name" />
+                            <field name="file_from_id" />
+                        </group>
+                    </sheet>
+
+                    <footer invisible="state != 'new'">
+                        <button name="action_read_files" string="Confirm" type="object" class="btn-primary" />
+                        <button special="cancel" string="Close" class="btn-secondary"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="project_tools_coa_converter_wizard_action" model="ir.actions.act_window">
+            <field name="name">COA Converter</field>
+            <field name="res_model">project.tools.coa.converter.wizard</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="target">new</field>
+            <field name="view_mode">form</field>
+        </record>
+
+
+    </data>
+</odoo>
