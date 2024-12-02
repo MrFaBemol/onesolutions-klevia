@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="dbm_database_kanban" model="ir.ui.view">
+            <field name="name">dbm.database.kanban</field>
+            <field name="model">dbm.database</field>
+            <field name="arch" type="xml">
+                <kanban string="Databases" class="o_database_kanban_view" records_draggable="false" groups_draggable="false" quick_create="false" group_create="false" group_edit="false" group_delete="false">
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+                                <div class="d-flex flex-column flex-md-row gap-3 flex-grow-1">
+                                    <div class="d-flex align-items-center o_database_url">
+                                        <div class="d-flex flex-column">
+                                            <a type="object" name="action_open_link" class="link-style" title="Open URL">
+                                                <field name="name" class="fs-4 fw-bold"/>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-center o_database_link">
+                                        <div>
+                                            <field name="partner_id" widget="many2one_avatar"/>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-center o_database_info">
+                                        <div class="d-flex flex-column flex-md-row gap-5 flex-grow-1">
+                                            <div>
+                                                <field name="state" widget="badge"
+                                                    decoration-info="state == '0_setup'"
+                                                    decoration-success="state == '10_in_use'"
+                                                    decoration-warning="state == '20_offline'"
+                                                    decoration-muted="state == '30_archived'"
+                                                />
+                                            </div>
+                                            <div><b>Category : </b><field name="category_id" /></div>
+                                            <div><b>Hosting : </b><field name="hosting_id" /></div>
+                                            <div><b>Server : </b><field name="server_id" /></div>
+                                        </div>
+                                    </div>
+                                    <div class="d-none px-2 flex-grow-1 align-items-center justify-content-end gap-3 o_database_actions" data-name="more-info">
+                                        <field name="active" invisible="1" />
+                                        <button name="action_open_link" string="Update" type="object" class="btn-link btn-outline-info oe_inline d-inline" />
+                                        <button name="action_open_link" string="Delete" type="object" class="btn-link btn-outline-danger oe_inline d-inline" confirm="This will destroy everything. Do you want to continue?"/>
+                                        <button name="action_archive" string="Archive" type="object" invisible="not active" class="btn-link btn-outline-dark oe_inline d-inline opacity-25" confirm="This will hide the record from this list. Do you want to continue?" />
+                                        <button name="action_unarchive" string="Unarchive" type="object" invisible="active" class="btn-link btn-outline-dark oe_inline d-inline opacity-25" />
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="dbm_database_tree" model="ir.ui.view">
+            <field name="name">dbm.database.tree</field>
+            <field name="model">dbm.database</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="partner_id" widget="many2one_avatar" />
+                    <field name="name" widget="url" />
+                    <field name="category_id" optional="hide" />
+                    <field name="hosting_id" optional="hide" />
+                    <field name="server_id" optional="hide" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="dbm_database_form" model="ir.ui.view">
+            <field name="name">dbm.database.form</field>
+            <field name="model">dbm.database</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_confirm_setup" string="Confirm" type="object"  title="Confirm" invisible="state != '0_setup'" class="btn-primary"/>
+                        <button name="action_take_offline" string="Turn off" type="object"  title="Turn off" invisible="state not in ['0_setup', '10_in_use']" class="btn-secondary"/>
+                        <button name="action_take_online" string="Turn on" type="object"  title="Turn on" invisible="state != '20_offline'" class="btn-secondary"/>
+                        <button name="action_reset_setup" string="Reset to setup" type="object"  title="Reset to setup" invisible="state == '0_setup'" class="btn-secondary"/>
+                        <field name="state" widget="statusbar" options="{'clickable': '0'}" statusbar_visible="0_setup,10_in_use,20_offline" />
+                    </header>
+                    <field name="category_company_id" invisible="True"/>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name"/>
+                            <h1>
+                                <field name="name" placeholder="e.g. https://onesolutions.odoo.com" widget="url" />
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="category_id" options="{'no_quick_create': True}" />
+                                <field name="hosting_id" invisible="not category_id" options="{'no_quick_create': True}" />
+                                <field name="server_id" invisible="not hosting_id" options="{'no_quick_create': True}" />
+                            </group>
+                            <group>
+                                <field name="partner_id" widget="many2one_avatar" />
+                                <field name="company_id" readonly="category_company_id" />
+                                <field name="category_company_id" invisible="True"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page name="page_technical_infos" string="Technical infos">
+                                <group>
+                                    <group string="DNS infos">
+                                        <field name="dummy_field" />
+                                    </group>
+                                    <group string="Mail server">
+                                        <field name="dummy_field" />
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" options="{'post_refresh':True}" />
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="dbm_database_search" model="ir.ui.view">
+            <field name="name">dbm.database.search</field>
+            <field name="model">dbm.database</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <field name="name" />
+                    <separator/>
+                    <filter name="archived" string="Archived" domain="[('active', '=', False)]"/>
+                </search>
+            </field>
+        </record>
+
+
+
+        <record id="dbm_database_action" model="ir.actions.act_window">
+            <field name="name">Databases</field>
+            <field name="res_model">dbm.database</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">kanban,tree,form</field>
+        </record>
+
+
+
+
+    </data>
+</odoo>

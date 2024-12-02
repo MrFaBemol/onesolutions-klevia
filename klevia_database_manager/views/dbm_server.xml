@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="dbm_server_tree" model="ir.ui.view">
+            <field name="name">dbm.server.tree</field>
+            <field name="model">dbm.server</field>
+            <field name="arch" type="xml">
+                <tree default_order="category_id,name asc">
+                    <field name="name" />
+                    <field name="category_id" />
+                    <field name="hosting_id" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="dbm_server_form" model="ir.ui.view">
+            <field name="name">dbm.server.form</field>
+            <field name="model">dbm.server</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name"/>
+                            <h1>
+                                <field name="name" placeholder="e.g. Odoo VM-001"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <field name="category_id" options="{'no_quick_create': True}" />
+                            <field name="hosting_id" invisible="not category_id" options="{'no_quick_create': True}" />
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" options="{'post_refresh':True}" />
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+
+
+        <record id="dbm_server_action" model="ir.actions.act_window">
+            <field name="name">Servers</field>
+            <field name="res_model">dbm.server</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+    </data>
+</odoo>

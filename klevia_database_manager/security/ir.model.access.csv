@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+dbm_category_manager_rule_access,dbm_category_manager_rule_access,model_dbm_category,group_dbm_manager,1,1,1,1
+dbm_hosting_manager_rule_access,dbm_hosting_manager_rule_access,model_dbm_hosting,group_dbm_manager,1,1,1,1
+dbm_server_manager_rule_access,dbm_server_manager_rule_access,model_dbm_server,group_dbm_manager,1,1,1,1
+dbm_database_manager_rule_access,dbm_database_manager_rule_access,model_dbm_database,group_dbm_manager,1,1,1,1
