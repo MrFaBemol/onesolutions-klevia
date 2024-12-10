@@ -1,4 +1,0 @@
-[submodule "onesolutions-klevia_crm"]
-	path = onesolutions-klevia_crm
-	url = git@github.com:onesolutions-klevia/crm.git
-	branch = 17.0
