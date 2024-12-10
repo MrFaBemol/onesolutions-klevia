@@ -53,17 +53,17 @@
             </field>
         </record>
 
-        <record id="dbm_database_tree" model="ir.ui.view">
-            <field name="name">dbm.database.tree</field>
+        <record id="dbm_database_list" model="ir.ui.view">
+            <field name="name">dbm.database.list</field>
             <field name="model">dbm.database</field>
             <field name="arch" type="xml">
-                <tree>
+                <list>
                     <field name="partner_id" widget="many2one_avatar" />
                     <field name="name" widget="url" />
                     <field name="category_id" optional="hide" />
                     <field name="hosting_id" optional="hide" />
                     <field name="server_id" optional="hide" />
-                </tree>
+                </list>
             </field>
         </record>
 
@@ -112,11 +112,7 @@
                             </page>
                         </notebook>
                     </sheet>
-                    <div class="oe_chatter">
-                        <field name="message_follower_ids" options="{'post_refresh':True}" />
-                        <field name="activity_ids"/>
-                        <field name="message_ids"/>
-                    </div>
+                    <chatter/>
                 </form>
             </field>
         </record>
@@ -140,7 +136,7 @@
             <field name="name">Databases</field>
             <field name="res_model">dbm.database</field>
             <field name="type">ir.actions.act_window</field>
-            <field name="view_mode">kanban,tree,form</field>
+            <field name="view_mode">kanban,list,form</field>
         </record>
 
 

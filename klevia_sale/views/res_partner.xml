@@ -11,10 +11,10 @@
                     <group name="arr_infos" string="Historic ARR" groups="sales_team.group_sale_manager">
                         <field name="arr_history_amount_total" invisible="1" />
                         <field name="arr_history_line_ids" nolabel="1" colspan="2">
-                            <tree editable="bottom">
+                            <list editable="bottom">
                                 <field name="name" widget="char" />
                                 <field name="amount" sum="Total" />
-                            </tree>
+                            </list>
                         </field>
                     </group>
                 </xpath>
