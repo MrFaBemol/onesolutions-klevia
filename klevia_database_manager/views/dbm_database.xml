@@ -8,7 +8,7 @@
             <field name="arch" type="xml">
                 <kanban string="Databases" class="o_database_kanban_view" records_draggable="false" groups_draggable="false" quick_create="false" group_create="false" group_edit="false" group_delete="false">
                     <templates>
-                        <t t-name="kanban-box">
+                        <t t-name="card">
                             <div class="oe_kanban_global_click">
                                 <div class="d-flex flex-column flex-md-row gap-3 flex-grow-1">
                                     <div class="d-flex align-items-center o_database_url">
