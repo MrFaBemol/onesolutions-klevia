@@ -4,7 +4,7 @@
     'version': "18.0.1.0.2",
     'installable': True,
 
-    'license': "AGPL-3",
+    'license': "OPL-1",
     'author': "OneSolutions Klevia SA - Gautier Casabona",
     'website': "https://www.onesolutions.ch",
 
