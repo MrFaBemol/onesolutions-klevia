@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+nextflow_mandate_rule_access_manager,nextflow_mandate_rule_access_manager,model_nextflow_mandate,group_nextflow_manager,1,1,1,1
+nextflow_mandate_tag_rule_access_manager,nextflow_mandate_tag_rule_access_manager,model_nextflow_mandate_tag,group_nextflow_manager,1,1,1,1
+
+nextflow_mandate_rule_access,nextflow_mandate_rule_access,model_nextflow_mandate,group_nextflow_user,1,1,0,0
+nextflow_mandate_tag_rule_access,nextflow_mandate_tag_rule_access,model_nextflow_mandate_tag,group_nextflow_user,1,0,0,0
+
+
+
+

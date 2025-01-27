@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="nextflow_mandate_kanban" model="ir.ui.view">
+            <field name="name">nextflow.mandate.kanban</field>
+            <field name="model">nextflow.mandate</field>
+            <field name="arch" type="xml">
+                <kanban string="Mandates" class="o_mandate_kanban_view" records_draggable="false" groups_draggable="false" quick_create="false" group_create="false" group_edit="false" group_delete="false">
+                    <templates>
+                        <t t-name="card">
+                            <div class="oe_kanban_global_click">
+                                <div class="d-flex flex-column flex-md-row gap-3 flex-grow-1">
+                                    <div class="d-flex align-items-center o_mandate_url">
+                                        <div class="d-flex flex-column">
+                                            <a type="object" name="action_open_link" class="link-style" title="Open URL">
+                                                <field name="name" class="fs-4 fw-bold"/>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-center o_mandate_link">
+                                        <div>
+                                            <field name="partner_id" widget="many2one_avatar"/>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-center o_mandate_info">
+                                        <div class="d-flex flex-column flex-md-row gap-5 flex-grow-1">
+                                            <div>
+                                                <field name="state" widget="badge"
+                                                    decoration-info="state == '0_setup'"
+                                                    decoration-success="state == '10_in_use'"
+                                                    decoration-warning="state == '20_offline'"
+                                                    decoration-muted="state == '30_archived'"
+                                                />
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="d-none px-2 flex-grow-1 align-items-center justify-content-end gap-3 o_mandate_actions" data-name="more-info">
+                                        <field name="active" invisible="1" />
+                                        <button name="action_open_link" string="Update" type="object" class="btn-link btn-outline-info oe_inline d-inline" />
+                                        <button name="action_open_link" string="Delete" type="object" class="btn-link btn-outline-danger oe_inline d-inline" confirm="This will destroy everything. Do you want to continue?"/>
+                                        <button name="action_archive" string="Archive" type="object" invisible="not active" class="btn-link btn-outline-dark oe_inline d-inline opacity-25" confirm="This will hide the record from this list. Do you want to continue?" />
+                                        <button name="action_unarchive" string="Unarchive" type="object" invisible="active" class="btn-link btn-outline-dark oe_inline d-inline opacity-25" />
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="nextflow_mandate_list" model="ir.ui.view">
+            <field name="name">nextflow.mandate.list</field>
+            <field name="model">nextflow.mandate</field>
+            <field name="arch" type="xml">
+                <list multi_edit="1" open_form_view="True">
+                    <field name="name" readonly="True" />
+                    <field name="user_id" widget="many2one_avatar_user" readonly="True" />
+                    <field name="partner_id" widget="many2one_avatar" />
+                    <button name="action_open_link" string="Connect" type="object" class="btn-primary" icon="fa-arrow-circle-right"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="nextflow_mandate_form" model="ir.ui.view">
+            <field name="name">nextflow.mandate.form</field>
+            <field name="model">nextflow.mandate</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_confirm_setup" string="Confirm" type="object"  title="Confirm" invisible="state != '0_setup'" class="btn-primary"/>
+                        <button name="action_take_offline" string="Turn off" type="object"  title="Turn off" invisible="state not in ['0_setup', '10_in_use']" class="btn-secondary"/>
+                        <button name="action_take_online" string="Turn on" type="object"  title="Turn on" invisible="state != '20_offline'" class="btn-secondary"/>
+                        <button name="action_reset_setup" string="Reset to setup" type="object"  title="Reset to setup" invisible="state == '0_setup'" class="btn-secondary"/>
+                        <field name="state" widget="statusbar" options="{'clickable': '0'}" statusbar_visible="0_setup,10_in_use,20_offline" />
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="name"/>
+                            <h1>
+                                <field name="name" placeholder="e.g. NextFlow SA" />
+                            </h1>
+                        </div>
+                        <group>
+<!--                        ________________ Manager ___________________ -->
+                            <group groups="nextflow.group_nextflow_manager">
+                                <field name="partner_id" widget="many2one_avatar" />
+                                <field name="url" widget="url" />
+
+                                <label for="subscription_code" string="Subscription code" />
+                                <div class="o_row">
+                                    <field name="show_subscription_code" invisible="1"/>
+                                    <button type="object" name="action_show_subscription_code" title="Show code" icon="fa-eye" invisible="show_subscription_code" />
+                                    <button type="object" name="action_hide_subscription_code" title="Hide code" icon="fa-eye-slash" invisible="not show_subscription_code" />
+                                    <field name="subscription_code" nolabel="1" invisible="show_subscription_code" password="True" />
+                                    <field name="subscription_code" nolabel="1" invisible="not show_subscription_code" />
+                                </div>
+                            </group>
+                            <group groups="nextflow.group_nextflow_manager">
+                                <field name="user_id" />
+                                <field name="date_from" widget="daterange" options="{'end_date_field': 'date_to'}" string="Period" />
+                                <field name="date_to" invisible="1" />
+
+                                <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}" />
+                            </group>
+<!--                        ________________ Normal user ___________________ -->
+                            <group groups="!nextflow.group_nextflow_manager">
+                                <field name="partner_id" widget="many2one_avatar" />
+                                <field name="url" widget="url" />
+                            </group>
+                            <group groups="!nextflow.group_nextflow_manager">
+                                <field name="user_id" readonly="True" />
+                                <field name="date_from" widget="daterange" options="{'end_date_field': 'date_to'}" string="Period" readonly="True" />
+                                <field name="date_to" invisible="1" />
+                                <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}" readonly="True" />
+                            </group>
+                        </group>
+                        <notebook>
+                            <page name="page_internal_notes" string="Internal Notes">
+                                <field name="note" nolabel="1" colspan="2" placeholder="Write any useful information here..." />
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <chatter/>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="nextflow_mandate_search" model="ir.ui.view">
+            <field name="name">nextflow.mandate.search</field>
+            <field name="model">nextflow.mandate</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <field name="name" />
+                    <field name="partner_id" string="Client" />
+                    <field name="url" />
+                    <field name="tag_ids" string="Tags" />
+                    <separator/>
+                    <filter string="My Mandates" name="my_mandates" domain="[('user_id', '=', uid)]"/>
+                    <separator/>
+                    <filter name="archived" string="Archived" domain="[('active', '=', False)]"/>
+                </search>
+            </field>
+        </record>
+
+
+
+        <record id="nextflow_mandate_action" model="ir.actions.act_window">
+            <field name="name">Mandates</field>
+            <field name="res_model">nextflow.mandate</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">list,form</field>
+            <field name="context">{'search_default_my_mandates': 1}</field>
+        </record>
+
+
+
+
+    </data>
+</odoo>

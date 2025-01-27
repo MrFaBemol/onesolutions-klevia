@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="module_category_nextflow" model="ir.module.category">
+            <field name="name">NextFlow</field>
+            <field name="description">A central dashboard to manage your clients databases</field>
+            <field name="sequence">3</field>
+        </record>
+
+        <record id="group_nextflow_user" model="res.groups">
+            <field name="name">User: my mandates only</field>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+            <field name="category_id" ref="module_category_nextflow"/>
+        </record>
+
+        <record id="group_nextflow_user_all" model="res.groups">
+            <field name="name">User: all mandates</field>
+            <field name="category_id" ref="module_category_nextflow"/>
+            <field name="implied_ids" eval="[(4, ref('group_nextflow_user'))]"/>
+        </record>
+
+        <record id="group_nextflow_manager" model="res.groups">
+            <field name="name">Administrator</field>
+            <field name="category_id" ref="module_category_nextflow"/>
+            <field name="implied_ids" eval="[(4, ref('group_nextflow_user_all'))]"/>
+            <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+        </record>
+
+    </data>
+</odoo>
