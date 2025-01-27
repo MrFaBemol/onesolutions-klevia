@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem
+        name="NextFlow"
+        id="menu_main_nextflow"
+        groups=""
+        web_icon="nextflow,static/description/icon.png"
+        sequence="70"
+    >
+        <menuitem
+            name="Databases"
+            id="menu_mandates"
+            action="nextflow_mandate_action"
+            sequence="1"
+        />
+
+        <menuitem
+            name="Configuration"
+            id="menu_nextflow_config"
+            groups="group_nextflow_manager"
+            sequence="100"
+        >
+            <menuitem id="nextflow_config_settings_menu" name="Settings"
+                sequence="0" action="nextflow_config_settings_action"
+                groups="group_nextflow_manager"/>
+            <menuitem
+                name="Tags"
+                id="menu_nextflow_config_mandate_tag"
+                action="nextflow_mandate_tag_action"
+                sequence="1"
+            />
+        </menuitem>
+    </menuitem>
+</odoo>

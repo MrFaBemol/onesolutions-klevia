@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="res_config_settings_view_form" model="ir.ui.view">
+            <field name="name">res_config_settings_view_form</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="base.res_config_settings_view_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//form" position="inside">
+                    <app data-string="NextFlow" id="nextflow" string="NextFlow" name="nextflow" groups="nextflow.group_nextflow_manager">
+                        <block title="NextFlow Synchronization" id="nextflow_sync_setting">
+                            <setting string="Activate synchronization" help="Synchronize data from mandates and display them on dashboard" id="nextflow_sync">
+                                <field name="module_nextflow_sync" widget="upgrade_boolean"/>
+                            </setting>
+                        </block>
+                    </app>
+                </xpath>
+            </field>
+        </record>
+
+
+        <record id="nextflow_config_settings_action" model="ir.actions.act_window">
+            <field name="name">Settings</field>
+            <field name="res_model">res.config.settings</field>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+            <field name="context">{'module' : 'nextflow', 'bin_size': False}</field>
+        </record>
+
+
+
+
+
+    </data>
+</odoo>
