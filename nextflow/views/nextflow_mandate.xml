@@ -57,9 +57,11 @@
             <field name="arch" type="xml">
                 <list multi_edit="1" open_form_view="True">
                     <field name="name" readonly="True" />
-                    <field name="user_id" widget="many2one_avatar_user" readonly="True" />
-                    <field name="partner_id" widget="many2one_avatar" />
-                    <button name="action_open_link" string="Connect" type="object" class="btn-primary" icon="fa-arrow-circle-right"/>
+                    <field name="url" readonly="True" widget="url" optional="hide"/>
+                    <field name="user_id" widget="many2one_avatar_user" optional="show" />
+                    <field name="partner_id" widget="many2one_avatar" readonly="True" optional="show"  />
+                    <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}" optional="show" />
+                    <button name="action_open_link" string="Connect" type="object" class="btn-primary mx-4 px-1" icon="fa-arrow-circle-right"/>
                 </list>
             </field>
         </record>
