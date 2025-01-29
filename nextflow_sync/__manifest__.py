@@ -9,6 +9,9 @@
     'website': "https://www.onesolutions.ch",
 
     'depends': ['nextflow'],
+    'external_dependencies': {
+        'python': ['otools_rpc']
+    },
     'assets': {
         'web.assets_backend': [
             'nextflow_sync/static/src/**/*',
