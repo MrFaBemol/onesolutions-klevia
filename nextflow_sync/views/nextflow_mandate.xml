@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="nextflow_mandate_form" model="ir.ui.view">
+            <field name="name">nextflow_mandate_form</field>
+            <field name="model">nextflow.mandate</field>
+            <field name="inherit_id" ref="nextflow.nextflow_mandate_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//header//button[1]" position="before">
+                    <button name="action_synchronize_activities" string="Synchronize" type="object"  title="Synchronize" invisible="credentials_state != '1_valid'" class="btn-primary"/>
+                </xpath>
+
+                <xpath expr="//notebook" position="inside">
+                    <page name="page_synchronization" string="Synchronization" groups="nextflow.group_nextflow_manager">
+                        <group>
+                            <field name="activate_sync" />
+                        </group>
+                        <group invisible="not activate_sync">
+                            <group string="Synchronization Settings">
+                                <button type="object" name="action_test_credentials" class="btn-outline-primary">
+                                    <i class="oi oi-arrow-right"/>
+                                    Test credentials
+                                </button>
+                                <div class="text-end">
+                                    <span invisible="credentials_state != '0_to_confirm'" class="badge text-bg-warning rounded-pill">Unknown</span>
+                                    <span invisible="credentials_state != '1_valid'" class="badge text-bg-success rounded-pill">Valid</span>
+                                    <span invisible="credentials_state != '2_invalid'" class="badge text-bg-danger rounded-pill">Invalid</span>
+                                </div>
+
+                                <field name="user_login" required="activate_sync" />
+                                <field name="user_password" password="True" required="activate_sync" />
+                                <field name="database_name" />
+                                <field name="credentials_state" invisible="1"/>
+                                <field name="my_activity_action_odoo_id" invisible="1"/>
+
+                                <separator />
+                                <label for="sync_interval_value" string="Frequency"/>
+                                <div class="o_row">
+                                    <field name="sync_interval_value" required="activate_sync" class="oe_inline" />
+                                    <field name="sync_interval_unit" required="activate_sync" class="oe_inline" />
+                                </div>
+
+                                <label for="next_sync"/>
+                                <div class="o_row">
+                                    <field name="next_sync" required="activate_sync" class="oe_inline" />
+                                    <i class="oe_inline" invisible="not last_sync">(Last sync : <field name="last_sync" class="oe_inline" />)</i>
+                                </div>
+
+                                <field name="mandate_lang_code" />
+                            </group>
+
+                            <group string="Activities Settings">
+                                <field name="inbox_type_ids" widget="many2many_tags" />
+                                <field name="payroll_type_ids" widget="many2many_tags" />
+                                <field name="accounting_type_ids" widget="many2many_tags" />
+                                <field name="vat_type_ids" widget="many2many_tags" />
+
+                                <separator />
+                                <button type="object" name="action_synchronize_activity_types" class="btn-outline-primary" invisible="available_activity_type_ids">
+                                    <i class="oi oi-arrow-right"/>
+                                    Synchronize activity types
+                                </button>
+                                <field name="available_activity_type_ids" widget="many2many_tags" readonly="1" force_save="1"/>
+                            </group>
+
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="nextflow_mandate_list" model="ir.ui.view">
+            <field name="name">nextflow_mandate_list</field>
+            <field name="model">nextflow.mandate</field>
+            <field name="inherit_id" ref="nextflow.nextflow_mandate_list" />
+            <field name="arch" type="xml">
+                <xpath expr="//list" position="attributes">
+                    <attribute name="default_order">total_count desc</attribute>
+                </xpath>
+
+<!--                Weird xpath because otherwise the ui is fucked up... Don't ask-->
+                <xpath expr="//button[@name='action_open_link']" position="before">
+                    <field name="inbox_count" string="Inbox" invisible="not inbox_count" decoration-bf="inbox_count" decoration-info="inbox_count" />
+                    <field name="payroll_count" string="Payroll" invisible="not payroll_count" decoration-bf="payroll_count" decoration-info="payroll_count" />
+                    <field name="accounting_count" string="Accounting" invisible="not accounting_count" decoration-bf="accounting_count" decoration-info="accounting_count" />
+                    <field name="vat_count" string="VAT" invisible="not vat_count" decoration-bf="vat_count" decoration-info="vat_count" />
+
+                    <field name="total_count" string="Total" optional="hide" />
+
+                    <field name="credentials_state" column_invisible="1"/>
+                    <field name="my_activity_action_odoo_id" column_invisible="1"/>
+                </xpath>
+                <xpath expr="//button[@name='action_open_link']" position="after">
+                    <button type="object" name="action_open_activities" invisible="credentials_state != '1_valid' or not my_activity_action_odoo_id or not total_count" string="Activities" class="btn-primary" icon="fa-clock-o" />
+                </xpath>
+            </field>
+        </record>
+
+
+        <record id="nextflow_mandate_search" model="ir.ui.view">
+            <field name="name">nextflow_mandate_search</field>
+            <field name="model">nextflow.mandate</field>
+            <field name="inherit_id" ref="nextflow.nextflow_mandate_search" />
+            <field name="arch" type="xml">
+                <xpath expr="//filter[@name='my_mandates']" position="after">
+                    <separator />
+                    <filter string="Any activities" name="any_activities" domain="[('total_count', '>', 0)]"/>
+                    <filter string="Inbox" name="inbox_activities" domain="[('inbox_count', '>', 0)]"/>
+                    <filter string="Payroll" name="payroll_activities" domain="[('payroll_count', '>', 0)]"/>
+                    <filter string="Accounting" name="accounting_activities" domain="[('accounting_count', '>', 0)]"/>
+                    <filter string="VAT" name="vat_activities" domain="[('vat_count', '>', 0)]"/>
+                </xpath>
+            </field>
+        </record>
+        
+        
+        <record id="action_synchronize_activity_types" model="ir.actions.server">
+            <field name="name">Synchronize activity types</field>
+            <field name="model_id" ref="nextflow.model_nextflow_mandate"/>
+            <field name="binding_model_id" ref="nextflow.model_nextflow_mandate"/>
+            <field name="groups_id" eval="[(4, ref('nextflow.group_nextflow_manager'))]" />
+            <field name="state">code</field>
+            <field name="code">action = records.action_synchronize_activity_types()</field>
+        </record>
+
+        <record id="action_synchronize_activities" model="ir.actions.server">
+            <field name="name">Synchronize activities</field>
+            <field name="model_id" ref="nextflow.model_nextflow_mandate"/>
+            <field name="binding_model_id" ref="nextflow.model_nextflow_mandate"/>
+            <field name="groups_id" eval="[(4, ref('nextflow.group_nextflow_manager'))]" />
+            <field name="state">code</field>
+            <field name="code">action = records.action_synchronize_activities()</field>
+        </record>
+
+    </data>
+</odoo>
