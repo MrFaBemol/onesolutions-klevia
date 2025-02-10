@@ -1,30 +1,25 @@
 {
-    'name': "Klevia Sale",
+    'name': "Klevia Sale - TCO calculator (for Odoo)",
     'category': "Sales",
-    'version': "18.0.1.0.6",
+    'version': "18.0.0.0.1",
     'installable': True,
+    'sequence': 1,
 
     'license': "OPL-1",
     'author': "OneSolutions SA - Gautier Casabona",
     'website': "https://www.onesolutions.io",
 
-    'depends': ['sale_subscription', 'crm'],
+    'depends': ['sale_management'],
     "assets": {
         "web.assets_backend": [],
     },
 
     'data': [
-        # Security
-        'security/ir.model.access.csv',
+        # Reports
+        'reports/sale_order.xml',
 
         # Views
-        'views/crm_lead.xml',
-        'views/res_partner.xml',
         'views/sale_order.xml',
-        'views/utm_source.xml',
-
-        # Reports
-        'reports/sale_order.xml'
     ],
 
     'qweb': [],

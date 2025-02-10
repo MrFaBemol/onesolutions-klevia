@@ -5,7 +5,7 @@
         <template id="report_saleorder_document" inherit_id="sale.report_saleorder_document" >
 
             <xpath expr="//div[hasclass('page')]" position="after">
-                <div class="page" t-if="doc.include_sow" style="page-break-before: always;">
+                <div class="page" t-if="doc.include_sow and doc.statement_of_work" style="page-break-before: always;">
                     <div class="oe_structure"/>
 
                     <div>

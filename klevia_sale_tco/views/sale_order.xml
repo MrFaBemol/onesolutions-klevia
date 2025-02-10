@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="view_order_form" model="ir.ui.view">
+            <field name="name">view_order_form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form" />
+            <field name="arch" type="xml">
+
+
+                <xpath expr="//notebook" position="inside">
+                    <page string="TCO">
+                        <field name="odoo_currency_id" invisible="1" />
+                        <div class="alert alert-warning text-center mb-0" role="alert" invisible="not odoo_configuration_warning">
+                            <field name="odoo_configuration_warning" />
+                        </div>
+                        <group>
+                            <field name="must_include_tco" widget="boolean_toggle" options="{'autosave': False}" />
+                            <field name="must_include_odoo_cost" widget="boolean_toggle" options="{'autosave': False}" />
+                        </group>
+                        <group invisible="not must_include_odoo_cost or not must_include_tco">
+                            <group string="Total cost">
+                                <label for="odoo_hosting_cost_yearly" string="Hosting" />
+                                <div class="o_row">
+                                    <span class="oe_inline">
+                                        <field name="odoo_hosting_cost_yearly" widget="monetary" options="{'currency_field': 'odoo_currency_id'}" />
+                                    </span>
+                                    <span class="oe_inline">
+                                        (<field name="odoo_hosting_cost" widget="monetary" options="{'currency_field': 'odoo_currency_id'}" class="oe_inline" /> / month)
+                                    </span>
+                                </div>
+
+                                <label for="odoo_license_cost_year_1" string="Licenses" />
+                                <div class="o_row">
+                                    <span class="oe_inline">
+                                        <field name="odoo_license_cost_year_1" widget="monetary" options="{'currency_field': 'odoo_currency_id'}" class="oe_inline" /> <i>(Year 1)</i>
+                                    </span>
+                                    <span class="oe_inline mx-3">-</span>
+                                    <div class="oe_inline">
+                                        <field name="odoo_license_cost_year_2" widget="monetary" options="{'currency_field': 'odoo_currency_id'}" class="oe_inline" /> <i>(Year 2)</i>
+                                    </div>
+                                </div>
+                            </group>
+                            <group string="Options">
+                                <div class="alert alert-info text-center mb-0" role="alert" >
+                                    This is informative, do not trust results blindly.
+                                </div>
+                                <field name="odoo_need_payroll" widget="boolean_toggle"  options="{'autosave': False}" />
+                                <field name="odoo_need_studio" widget="boolean_toggle" options="{'autosave': False}" />
+                                <field name="odoo_multi_company" widget="boolean_toggle" options="{'autosave': False}" />
+                                <field name="odoo_external_api" widget="boolean_toggle" options="{'autosave': False}" />
+                                <field name="odoo_need_development" widget="boolean_toggle" options="{'autosave': False}" />
+                            </group>
+                        </group>
+
+                        <group invisible="not must_include_odoo_cost or not must_include_tco">
+                            <group string="Hosting">
+                                <field name="odoo_hosting_type" />
+                                <field name="odoo_sh_worker" invisible="odoo_hosting_type != 'sh'" />
+                                <field name="odoo_sh_staging" invisible="odoo_hosting_type != 'sh'" />
+                                <field name="odoo_sh_storage" invisible="odoo_hosting_type != 'sh'" />
+                            </group>
+                            <group string="Licenses">
+                                <div class="alert alert-warning text-center mb-0" role="alert" invisible="not (not odoo_license_include_onesolutions and odoo_hosting_type != 'sh')">
+                                    If hosting is not Odoo.SH, including a OneSolutions license is strongly advised.
+                                </div>
+
+                                <field name="odoo_license_type" />
+                                <label for="odoo_license_customer" string="# Licenses" invisible="odoo_license_type == 'free'" />
+                                <div class="o_row" invisible="odoo_license_type == 'free'">
+                                    <field name="odoo_license_customer" class="oe_inline"/>
+                                    <span class="oe_inline">
+                                        Add a license for OneSolutions? <field name="odoo_license_include_onesolutions" class="oe_inline"  />
+                                    </span>
+                                </div>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <template id="report_saleorder_document" inherit_id="sale.report_saleorder_document" >
+
+            <xpath expr="//t[@t-call='web.external_layout']" position="after">
+                <t t-if="doc.must_include_tco" t-call="web.external_layout">
+                    <t t-set="licence_prices" t-value="doc._get_formatted_licence_prices()" />
+                    <t t-set="hosting_prices" t-value="doc._get_formatted_sh_prices()" />
+
+                    <div class="page">
+                        <div class="oe_structure"/>
+                        <div t-if="doc.must_include_odoo_cost">
+                            <h4>Licences Odoo</h4>
+                            <p  style="font-style: italic;">
+                                Remarques concernant cette section :
+                                <ul style="font-style: italic;">
+                                    <li>Le contrat d'abonnement licence est signé en direct avec l'éditeur Odoo - cette section est à titre informatif.</li>
+                                    <li>La licence de type "Personnalisé" est requise pour Odoo Studio et le multi-sociétés</li>
+                                    <li>Il est possible de souscrire à un abonnement multi-années pour les licences afin d’en garantir le prix sur le long terme</li>
+                                </ul>
+                            </p>
+                            <p class="mt-1">
+                                <div class="row">
+                                    <div class="col-4"> </div>
+                                    <div class="col-4"><b>Année 1</b></div>
+                                    <div class="col-4"><b>Année 2</b></div>
+                                </div>
+                                <div class="row mt-1">
+                                    <div class="col-4">Nombre de licences</div>
+                                    <div class="col-8">
+                                        <span t-out="doc.odoo_license_count" class="mr-3 " />
+                                        <span t-if="doc.odoo_license_include_onesolutions">(incluant l'accès pour OneSolutions)</span>
+                                        <span t-elif="doc.odoo_hosting_type != 'sh'">(accès partagé avec OneSolutions)</span>
+                                        <span t-else="" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4">
+                                        Prix d'une licence
+                                        <span t-if="doc.odoo_license_type == 'free'">"1 App Free"</span>
+                                        <span t-elif="doc.odoo_license_type == 'standard'">"Standard"</span>
+                                        <span t-else="">"Personnalisé"</span>
+                                    </div>
+                                    <div class="col-4"><span t-out="licence_prices[1]" /></div>
+                                    <div class="col-4"><span t-out="licence_prices[2]" /></div>
+                                </div>
+
+                                <div class="row mt-1">
+                                    <div class="col-4"> </div>
+                                    <div class="col-8"><hr /></div>
+                                </div>
+                                <div class="row mt-1" style="font-weight: bold">
+                                    <div class="col-4">Coût total</div>
+                                    <div class="col-4"><span t-out="licence_prices['total_1']" /></div>
+                                    <div class="col-4"><span t-out="licence_prices['total_2']" /></div>
+                                </div>
+                            </p>
+
+                            <p class="mt-5"><i>Plus d'informations: <a href="https://www.odoo.com/pricing">https://www.odoo.com/pricing</a></i></p>
+
+<!--                            Odoo SH-->
+
+                            <div t-if="doc.odoo_hosting_type == 'sh'">
+                                <hr />
+                                <h4>Hébergement Odoo.SH</h4>
+
+                                <p  style="font-style: italic;">
+                                    Remarques concernant cette section :
+                                    <ul style="font-style: italic;">
+                                        <li>Le contrat pour l'hébergement Odoo.SH est signé en direct avec l'éditeur Odoo - comme pour les licences.</li>
+                                        <li>Odoo.SH est un service cloud géré par Odoo S.A., conçu spécifiquement pour les projets Odoo personnalisés</li>
+                                        <li>Le service inclut :
+                                            <ul>
+                                                <li>Une intégration complète avec GitHub</li>
+                                                <li>Des environnements de tests dédiés pour les processus de validation</li>
+                                                <li>Sauvegardes automatiques quotidiennes (jusqu’à 3 mois d’historique)</li>
+                                                <li>Une haute disponibilité et un panel de monitoring (logs, statistiques serveur, erreurs)</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </p>
+
+
+                                <div class="row">
+                                    <div class="col-6"> </div>
+                                    <div class="col-2"><b>Quantité</b></div>
+                                    <div class="col-2"><b>Prix</b></div>
+                                    <div class="col-2"><b>Total</b></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6"># Workers</div>
+                                    <div class="col-2"><span t-out="doc.odoo_sh_worker" /></div>
+                                    <div class="col-2"><span t-out="hosting_prices.get('worker')" /> €</div>
+                                    <div class="col-2"><span t-out="doc.odoo_sh_worker * hosting_prices.get('worker')" /> €</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6"># Environnements de test</div>
+                                    <div class="col-2"><span t-out="doc.odoo_sh_staging" /></div>
+                                    <div class="col-2"><span t-out="hosting_prices.get('staging')" /> €</div>
+                                    <div class="col-2"><span t-out="doc.odoo_sh_staging * hosting_prices.get('staging')" /> €</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">Stockage (Gb)</div>
+                                    <div class="col-2"><span t-out="doc.odoo_sh_storage" /></div>
+                                    <div class="col-2"><span t-out="hosting_prices.get('storage')" /> € / Gb</div>
+                                    <div class="col-2"><span t-out="hosting_prices.get('storage_month')" /></div>
+                                </div>
+                                <div class="row mt-1">
+                                    <div class="col-6"> </div>
+                                    <div class="col-6"><hr /></div>
+                                </div>
+                                <div class="row mt-1">
+                                    <div class="col-6"><b>Coût total</b></div>
+                                    <div class="col-2"></div>
+                                    <div class="col-2"></div>
+                                    <div class="col-2"><b><span t-out="hosting_prices.get('total_month')" /></b><i> / mois</i></div>
+                                </div>
+                                <div class="row mt-1">
+                                    <div class="col-10"></div>
+                                    <div class="col-2"><b><span t-out="hosting_prices.get('total_year')" /></b><i> / an</i></div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </xpath>
+
+        </template>
+
+    </data>
+</odoo>
