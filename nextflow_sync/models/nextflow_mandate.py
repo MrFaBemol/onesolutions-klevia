@@ -1,8 +1,10 @@
+import time
 
 from odoo import api, fields, models, _
 from odoo.exceptions import UserError, ValidationError
 from dateutil.relativedelta import relativedelta
 from collections import defaultdict
+from datetime import timedelta
 from otools_rpc.external_api import Environment
 from loguru import logger as loguru_logger
 import re
@@ -135,6 +137,15 @@ class NextflowMandate(models.Model):
 
         self.total_count = len(all_activities)
 
+        # Update sync data
+        now = fields.Datetime.now()
+        kwargs = {self.sync_interval_unit: self.sync_interval_value}
+        next_sync = now + relativedelta(**kwargs)
+        self.write({
+            'next_sync': next_sync,
+            'last_sync': now,
+        })
+
         return {
             "type": "ir.actions.client",
             "tag": "display_notification",
@@ -148,8 +159,31 @@ class NextflowMandate(models.Model):
 
 
 
+    def _cron_synchronize_activities(self):
+        mandates = self.env['nextflow.mandate'].search(
+            [
+                ('next_sync', '<', fields.Datetime.now()),
+                ('activate_sync', '=', True),
+                ('credentials_state', '=', '1_valid'),
+            ]
+        )
+        clock = time.perf_counter()
 
-        # --------------------------------------------
+        for mandate in mandates:
+            if time.perf_counter() - clock >= 840:
+                break
+            try:
+                mandate._action_synchronize_activities()
+                self.env.cr.commit()
+
+            except Exception as e:
+                self.env.cr.rollback()
+                _logger.error("Error on cron _cron_synchronize_activities : Exception: %s" % e)
+
+
+
+
+    # --------------------------------------------
     #                   ACTIONS
     # --------------------------------------------
 
