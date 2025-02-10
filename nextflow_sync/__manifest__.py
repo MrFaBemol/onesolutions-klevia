@@ -1,7 +1,7 @@
 {
     'name': "NextFlow Sync",
     'category': "Services/Accounting",
-    'version': "18.0.1.0.0",
+    'version': "18.0.1.0.1",
     'installable': True,
 
     'license': "OPL-1",
@@ -31,6 +31,9 @@
 
         # Menus
         # 'data/ir_ui_menu.xml',
+
+        # Data
+        'data/ir_cron.xml',
     ],
 
     'qweb': [],
