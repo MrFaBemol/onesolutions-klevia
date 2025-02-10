@@ -7,6 +7,65 @@
             <field name="model">sale.order</field>
             <field name="inherit_id" ref="sale.view_order_form" />
             <field name="arch" type="xml">
+
+
+                <xpath expr="//notebook" position="inside">
+                    <page string="TCO">
+                        <field name="odoo_currency_id" invisible="1" />
+                        <group>
+                            <group string="Total cost">
+                                <label for="odoo_hosting_cost_yearly" string="Hosting" />
+                                <div class="o_row">
+                                    <span class="oe_inline">
+                                        <field name="odoo_hosting_cost_yearly" widget="monetary" options="{'currency_field': 'odoo_currency_id'}" />
+                                    </span>
+                                    <span class="oe_inline">
+                                        (<field name="odoo_hosting_cost" widget="monetary" options="{'currency_field': 'odoo_currency_id'}" class="oe_inline" /> / month)
+                                    </span>
+                                </div>
+
+                                <label for="odoo_license_cost_year_1" string="Licenses" />
+                                <div class="o_row">
+                                    <span class="oe_inline">
+                                        <field name="odoo_license_cost_year_1" widget="monetary" options="{'currency_field': 'odoo_currency_id'}" class="oe_inline" /> <i>(Year 1)</i>
+                                    </span>
+                                    <span class="oe_inline mx-3">-</span>
+                                    <span class="oe_inline">
+                                        <field name="odoo_license_cost_year_2" widget="monetary" options="{'currency_field': 'odoo_currency_id'}" class="oe_inline" /> <i>(Year 2)</i>
+                                    </span>
+                                </div>
+                            </group>
+                            <group string="Options">
+                                <field name="odoo_need_payroll" widget="boolean_toggle" />
+                                <field name="odoo_need_studio" widget="boolean_toggle" />
+                                <field name="odoo_multi_company" widget="boolean_toggle" />
+                                <field name="odoo_external_api" widget="boolean_toggle" />
+                                <field name="odoo_need_development" widget="boolean_toggle" />
+                            </group>
+                        </group>
+
+                        <group>
+                            <group string="Hosting">
+                                <field name="odoo_hosting_type" />
+                                <field name="odoo_sh_worker" invisible="odoo_hosting_type != 'sh'" />
+                                <field name="odoo_sh_staging" invisible="odoo_hosting_type != 'sh'" />
+                                <field name="odoo_sh_storage" invisible="odoo_hosting_type != 'sh'" />
+                            </group>
+                            <group string="Licenses">
+                                <field name="odoo_license_type" />
+
+                                <label for="odoo_license_customer" string="# Licenses" invisible="odoo_license_type == 'free'" />
+                                <div class="o_row" invisible="odoo_license_type == 'free'">
+                                    <field name="odoo_license_customer" class="oe_inline"/>
+                                    <span class="oe_inline">
+                                        Add a license for OneSolutions? <field name="odoo_license_include_onesolutions" class="oe_inline"  />
+                                    </span>
+                                </div>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+
                 <xpath expr="//notebook" position="inside">
                     <page string="Statement of work">
                         <group>
