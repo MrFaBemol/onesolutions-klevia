@@ -7,6 +7,9 @@
             <field name="model">sale.order</field>
             <field name="inherit_id" ref="sale.view_order_form" />
             <field name="arch" type="xml">
+                <xpath expr="//header/button[@name='action_preview_sale_order']" position="after">
+                    <button name="action_pdf_preview" string="PDF Preview" type="object" class="btn-secondary"/>
+                </xpath>
                 <xpath expr="//notebook" position="inside">
                     <page string="Statement of work">
                         <group>
