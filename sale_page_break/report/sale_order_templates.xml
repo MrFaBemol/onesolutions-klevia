@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="report_sale_order_inherit" inherit_id="sale.report_saleorder_document">
+        <xpath expr="//tbody[@class='sale_tbody']//t[@t-foreach='lines_to_report']" position="inside">
+            <t t-if="line.is_checked">
+                <tr>
+                    <td colspan="99" style="page-break-after: always;">
+                        <div style="page-break-after: always;"></div>
+                    </td>
+                </tr>
+            </t>
+        </xpath>
+    </template>
+</odoo>
+
