@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="update_line_taxes_form" model="ir.ui.view">
+        <field name="name">update_line_taxes_form</field>
+        <field name="model">update.line.taxes.wizard</field>
+        <field name="arch" type="xml">
+            <form string="update_line_taxes_form">
+                <sheet>
+                    <group>
+                        <field name="tax_ids" widget="many2many_tags"/>
+                        <field name="sale_order_line_ids">
+                            <list editable="bottom">
+                                <field name="is_update_tax"/>
+                                <field name="order_id"/>
+                                <field name="sale_order_line_id"/>
+                                <field name="tax_ids" widget="many2many_tags"/>
+                            </list>
+                        </field>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="action_update_taxes" type="object" string="Update" class="oe_highlight"/>
+                    <button string="Cancel" class="oe_link" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="update_line_taxes_action" model="ir.actions.act_window">
+        <field name="name">Update line taxes</field>
+        <field name="res_model">update.line.taxes.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="update_line_taxes_form"/>
+        <field name="target">new</field>
+    </record>
+</odoo>
