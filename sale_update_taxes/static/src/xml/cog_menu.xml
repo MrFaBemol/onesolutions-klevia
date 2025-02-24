@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="blog_cog_menu.NewOption" owl="1">
+         <DropdownItem class="'o_cog_menu'" onSelected.bind="actionNewOption">
+             Update lines taxes
+        </DropdownItem>
+    </t>
+</templates>
