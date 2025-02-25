@@ -7,7 +7,7 @@
             <field name="inherit_id" ref="sale.view_order_form" />
             <field name="arch" type="xml">
                 <xpath expr="//notebook/page[@name='order_lines']/field[@name='order_line']/list/field[@name='sequence']" position="after">
-                    <field name="is_checked" />
+                    <field name="is_page_break"/>
                 </xpath>
             </field>
         </record>
