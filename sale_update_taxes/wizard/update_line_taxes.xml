@@ -8,14 +8,14 @@
             <form string="update_line_taxes_form">
                 <sheet>
                     <group>
-                        <field name="sale_order_id"/>
+                        <field name="sale_order_id" invisible="1"/>
                         <field name="tax_ids" widget="many2many_tags"/>
                         <field name="sale_order_line_ids">
                             <list editable="bottom">
+                                <field name="is_update_tax"/>
                                 <field name="order_id"/>
                                 <field name="sale_order_line_id"/>
-                                <field name="update"/>
-                                <field name="product_id"/>
+<!--                                <field name="product_id"/>-->
                                 <field name="tax_id" widget="many2many_tags"/>
                             </list>
                         </field>

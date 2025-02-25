@@ -26,7 +26,7 @@ class UpdateLineTaxes(models.TransientModel):
     def action_update_taxes(self):
         for rec in self:
             for line in rec.sale_order_line_ids:
-                if line.update:
+                if line.is_update_tax:
                     line.sale_order_line_id.write({'tax_id': [(6, 0, rec.tax_ids.ids)]})
 
 
@@ -43,7 +43,7 @@ class UpdateLineTaxes(models.TransientModel):
                 'tax_id':line.tax_id,
                 'product_id': line.product_id.id,
                 'price_unit': line.price_unit,
-                'update': False  # Default unchecked
+                'is_update_tax': False  # Default unchecked
             } for line in sale_order.order_line]
 
             defaults.update({
@@ -73,14 +73,14 @@ class UpdateLineTaxesLine(models.TransientModel):
     _description = 'Wizard Sale Order Lines'
 
     update_line_taxes_id = fields.Many2one('update.line.taxes', ondelete="cascade")
-    sale_order_line_id = fields.Many2one('sale.order.line', string="Sale Order Line")
+    sale_order_line_id = fields.Many2one('sale.order.line', string="Description")
     order_id = fields.Many2one(
         comodel_name='sale.order',
-        string='Order_id',
+        string='Order',
         required=False)
     product_id = fields.Many2one('product.product', string="Product", readonly=True)
     price_unit = fields.Float(string="Unit Price", readonly=True)
-    update = fields.Boolean(string="Update Taxes",readonly=False)
+    is_update_tax = fields.Boolean(string="Update Taxes",readonly=False)
     tax_id = fields.Many2many(
         comodel_name='account.tax',
         string='Tax_id')

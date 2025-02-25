@@ -5,5 +5,5 @@ class SaleOrderLine(models.Model):
     _inherit = 'sale.order.line'
     _description = 'SaleOrderLine'
 
-    update = fields.Boolean(string='Update', required=False)
+    is_update_tax = fields.Boolean(string='Update', required=False)
 
