@@ -23,5 +23,16 @@
             </field>
         </record>
 
+        <record id="sale_subscription_view_tree" model="ir.ui.view">
+            <field name="name">sale_subscription_view_tree</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale_subscription.sale_subscription_view_tree" />
+            <field name="arch" type="xml">
+                <xpath expr="//list//field[@name='recurring_total']" position="after">
+                    <field name="partner_arr_history_amount_total" string="Historic ARR" optional="hide" widget="monetary" options="{'currency_field': 'currency_id'}" />
+                </xpath>
+            </field>
+        </record>
+
     </data>
 </odoo>
