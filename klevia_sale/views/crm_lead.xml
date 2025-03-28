@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="crm_lead_view_form" model="ir.ui.view">
+            <field name="name">crm_lead_view_form</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_lead_view_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//label[@for='date_deadline']/../field[@name='tag_ids']" position="after">
+                    <field name="source_id" position="move" />
+                </xpath>
+                <field name="source_id" position="attributes">
+                    <attribute name="required">True</attribute>
+                </field>
+            </field>
+        </record>
+
+        <record id="crm_case_kanban_view_leads" model="ir.ui.view">
+            <field name="name">crm_case_kanban_view_leads</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_case_kanban_view_leads" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='tag_ids']" position="after">
+                    <field name="source_color" invisible="1"/>
+                    <field name="source_id" widget="badge"
+                           decoration-success="source_color == 'green'"
+                           decoration-danger="source_color == 'red'"
+                           decoration-warning="source_color == 'yellow'"
+                           decoration-info="source_color == 'blue'"
+                    />
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

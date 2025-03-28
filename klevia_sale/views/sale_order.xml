@@ -31,6 +31,9 @@
                 <xpath expr="//list//field[@name='recurring_total']" position="after">
                     <field name="partner_arr_history_amount_total" string="Historic ARR" optional="hide" widget="monetary" options="{'currency_field': 'currency_id'}" />
                 </xpath>
+                <xpath expr="//list" position="inside">
+                    <field name="source_id" optional="hide" />
+                </xpath>
             </field>
         </record>
 

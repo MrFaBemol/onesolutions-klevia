@@ -1,14 +1,14 @@
 {
     'name': "Klevia Sale Module",
     'category': "Sales",
-    'version': "18.0.1.0.3",
+    'version': "18.0.1.0.4",
     'installable': True,
 
     'license': "OPL-1",
     'author': "OneSolutions Klevia SA - Gautier Casabona",
     'website': "https://www.onesolutions.ch",
 
-    'depends': ['sale_management', 'sale_subscription'],
+    'depends': ['sale_subscription', 'crm'],
     "assets": {
         "web.assets_backend": [],
     },
@@ -18,8 +18,10 @@
         'security/ir.model.access.csv',
 
         # Views
+        'views/crm_lead.xml',
         'views/res_partner.xml',
         'views/sale_order.xml',
+        'views/utm_source.xml',
 
         # Reports
         'reports/sale_order.xml'
