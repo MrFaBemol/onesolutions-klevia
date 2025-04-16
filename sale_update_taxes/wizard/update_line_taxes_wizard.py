@@ -24,6 +24,17 @@ class UpdateLineTaxesWizard(models.TransientModel):
         self.ensure_one()
         self.sale_order_line_ids.filtered('is_update_tax').sale_order_line_id.tax_id = self.tax_ids.ids
 
+    def action_select_all_lines(self):
+        self.ensure_one()
+        self.sale_order_line_ids.write({'is_update_tax': True})
+        return {
+            'type': 'ir.actions.act_window',
+            'res_model': 'update.line.taxes.wizard',
+            'view_mode': 'form',
+            'target': 'new',
+            'res_id': self.id
+        }
+
 
 class UpdateLineTaxesWizardLine(models.TransientModel):
     _name = 'update.line.taxes.wizard.line'
@@ -36,3 +47,4 @@ class UpdateLineTaxesWizardLine(models.TransientModel):
     price_unit = fields.Float(related='sale_order_line_id.price_unit', readonly=True)
     is_update_tax = fields.Boolean(string="Update Taxes", readonly=False)
     tax_ids = fields.Many2many(related='sale_order_line_id.tax_id', readonly=True)
+
