@@ -12,7 +12,7 @@ class SaleOrder(models.Model):
             'product_id': line.product_id.id,
             'price_unit': line.price_unit,
             'is_update_tax': False
-        } for line in self.order_line]
+        } for line in self.order_line if line.display_type not in ['line_section', 'line_note']]
         return {
             'type': 'ir.actions.act_window',
             'res_model': 'update.line.taxes.wizard',
