@@ -6,6 +6,9 @@
             <field name="model">sale.order</field>
             <field name="inherit_id" ref="sale.view_order_form" />
             <field name="arch" type="xml">
+                <xpath expr="//notebook/page[@name='order_lines']/field[@name='order_line']" position="attributes">
+                    <attribute name="widget">sol_o2m_custom</attribute>
+                </xpath>
                 <xpath expr="//notebook/page[@name='order_lines']/field[@name='order_line']/list/field[@name='sequence']" position="after">
                     <field name="add_page_break_after" optional="hide"/>
                 </xpath>
