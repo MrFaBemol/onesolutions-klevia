@@ -22,6 +22,7 @@
         'views/res_partner.xml',
         'views/sale_order.xml',
         'views/utm_source.xml',
+        'views/sale_order_template.xml',
 
         # Reports
         'reports/sale_order.xml'
