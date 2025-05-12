@@ -18,7 +18,8 @@ class SaleOrder(models.Model):
 
     @api.depends('sale_order_template_id')
     def _compute_payment_term_id(self):
-        super()._compute_payment_term_id()
+        res = super()._compute_payment_term_id()
         for order in self.filtered('sale_order_template_id'):
             if order.sale_order_template_id.payment_term_id:
                 order.payment_term_id = order.sale_order_template_id.payment_term_id
+        return res

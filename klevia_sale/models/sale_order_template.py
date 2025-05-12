@@ -6,5 +6,4 @@ class SaleOrderTemplate(models.Model):
 
     payment_term_id = fields.Many2one(
         comodel_name='account.payment.term',
-        string='Payment terms',
-        required=False)
+        string='Payment terms')
