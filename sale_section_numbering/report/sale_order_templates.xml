@@ -1,27 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <template id="report_saleorder_document" inherit_id="sale.report_saleorder_document">
-        <xpath expr="//tr/t[starts-with(@t-elif, 'line.display_type') and contains(@t-elif, 'line_section')]" position="replace">
-
+        <xpath expr="//t[@t-foreach='lines_to_report']" position="before">
+            <t t-set="section_number" t-value="doc.section_start_number"/>
+        </xpath>
+        <xpath expr="//td[@name='td_section_line']/span" position="before">
             <t t-if="doc.add_section_number and line.display_type == 'line_section'">
-                <td name="td_section_line" colspan="99">
-                    <span>
-                        <t t-esc="line.section_number"/> -
-                        <span t-field="line.name">A section title</span>
-                    </span>
-                </td>
+                <span>
+                    <t t-esc="section_number"/> -
+                </span>
+                <t t-set="section_number" t-value="section_number+1"/>
             </t>
-            <t t-elif="line.display_type == 'line_section' or line.product_type == 'combo'">
-
-                <td name="td_section_line" colspan="99">
-                    <span t-field="line.name">A section title</span>
-                </td>
-                <t t-set="current_section" t-value="line"/>
-                <t t-set="current_subtotal" t-value="0"/>
-
-            </t>
-
-
         </xpath>
     </template>
 </odoo>
