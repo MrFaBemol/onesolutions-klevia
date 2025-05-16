@@ -1,4 +1,4 @@
-from odoo import fields, models
+from odoo import api,fields, models
 
 
 class SaleOrder(models.Model):
@@ -15,3 +15,11 @@ class SaleOrder(models.Model):
             'url': "/report/pdf/sale.report_saleorder/%s" % self.id,
             'target': 'new'
         }
+
+    @api.depends('sale_order_template_id')
+    def _compute_payment_term_id(self):
+        res = super()._compute_payment_term_id()
+        for order in self.filtered('sale_order_template_id'):
+            if order.sale_order_template_id.payment_term_id:
+                order.payment_term_id = order.sale_order_template_id.payment_term_id
+        return res
