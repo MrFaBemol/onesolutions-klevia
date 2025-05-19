@@ -8,10 +8,10 @@
                 <sheet>
                     <group>
                         <field name="tax_ids" widget="many2many_tags"/>
+                        <button name="action_select_all_lines" type="object" string="Select All" class="oe_highlight"/>
                         <field name="sale_order_line_ids">
-                            <list editable="bottom">
+                            <list create="0">
                                 <field name="is_update_tax"/>
-                                <field name="order_id"/>
                                 <field name="sale_order_line_id"/>
                                 <field name="tax_ids" widget="many2many_tags"/>
                             </list>
@@ -34,3 +34,4 @@
         <field name="target">new</field>
     </record>
 </odoo>
+
