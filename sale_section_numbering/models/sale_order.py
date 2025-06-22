@@ -7,8 +7,7 @@ class SaleOrder(models.Model):
     add_section_number = fields.Boolean(
         string='Section numbers',
         default=True)
-    section_start_number = fields.Integer(
-        string='First number')
+    section_start_number = fields.Integer(string='First number', default=1)
 
     
     
