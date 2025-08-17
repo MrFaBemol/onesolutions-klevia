@@ -16,5 +16,19 @@
             </field>
         </record>
 
+        <record id="hr_timesheet_line_tree" model="ir.ui.view">
+            <field name="name">hr_timesheet_line_tree</field>
+            <field name="model">account.analytic.line</field>
+            <field name="inherit_id" ref="hr_timesheet.hr_timesheet_line_tree" />
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='unit_amount']" position="before">
+                    <field optional="show" name="effective_time" widget="float_time"/>
+                </xpath>
+                <xpath expr="//field[@name='unit_amount']" position="after">
+                    <field optional="show" name="add_commuting" widget="boolean_toggle" options="{'autosave': False}" />
+                </xpath>
+            </field>
+        </record>
+
     </data>
 </odoo>

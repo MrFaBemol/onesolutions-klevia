@@ -8,6 +8,7 @@ class AccountAnalyticLine(models.Model):
     _inherit = "account.analytic.line"
     
     
+    unit_amount = fields.Float(string="Invoiced time")
     effective_time = fields.Float()
     add_commuting = fields.Boolean()
 
