@@ -20,6 +20,19 @@
                         </group>
                     </page>
                 </xpath>
+
+                <xpath expr="//field[@name='tax_totals']" position="after">
+                    <div class="d-flex float-end" colspan="2" groups="base.group_user">
+                        <label for="total_hours" string="Total Time" />
+                        <div>
+                            <field name="total_hours" class="oe_inline mr-1" />
+                            <span class="oe_inline mr-1">&amp;nbsp; hours</span>
+                            <br />
+                            <field name="total_days" nolabel="1" class="oe_inline" />
+                            <span class="oe_inline">&amp;nbsp; days</span>
+                        </div>
+                    </div>
+                </xpath>
             </field>
         </record>
 
