@@ -13,7 +13,7 @@ class CrmLead(models.Model):
         if not self.partner_id or not self.main_contact_id:
             raise UserError("Please select a customer and a contact first !")
         content = self._generate_odoo_table()
-        self.description = Markup(content) + Markup("<br />") + (self.description or Markup(""))
+        self.description = content + Markup("<br />") + (self.description or Markup(""))
 
     def _generate_odoo_table(self):
         self.ensure_one()
@@ -37,7 +37,7 @@ class CrmLead(models.Model):
         for line_name, line_fn in lines:
             lines_html += f"""<tr style="height: 46px;"><td style="width: 265.5px;"><strong><span class="o_small-fs">{line_name}</span></strong></td><td style="width: 560px;">{line_fn(self)}</td></tr>"""
 
-        return header + lines_html + footer
+        return Markup(header + lines_html + footer)
 
     def _get_partner_formatted_address(self):
         self.ensure_one()
@@ -63,7 +63,12 @@ class CrmLead(models.Model):
             raise UserError("Le modèle d'email 'klevia_crm_odoo.lead_declaration_mail_template' est introuvable.")
 
         for lead in self:
-            template.send_mail(lead.id, force_send=True)
+            template.with_context(mail_post_autofollow=True).send_mail(lead.id, force_send=True)
             lead.sent_to_odoo = True
+            lead.message_post(
+                body=f"Lead sent to Odoo !",
+                message_type="comment",
+                subtype_xmlid="mail.mt_note",
+            )
 
         return True

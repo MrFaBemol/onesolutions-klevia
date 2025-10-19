@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <data >
+    <data>
 
         <record id="lead_declaration_mail_template" model="mail.template">
             <field name="name">Odoo: Lead Declaration</field>
@@ -13,6 +13,7 @@
 <p>Bonjour Philippe,</p>
 <p>Nous souhaitons te déclarer un nouveau lead : <span t-out="object.sudo().partner_id.name"></span></p>
 <p t-if="object.sudo().excel_sheet_url">Tu trouveras les détails dans l'Excel en suivant le lien suivant : <a t-att-href="object.sudo().excel_sheet_url"><span t-out="object.sudo().excel_sheet_url" /></a></p>
+<p t-out="object.sudo()._generate_odoo_table()"></p>
 <p>Merci, passe une belle journée!</p>
 <t t-if="not is_html_empty(user.signature)">
     <t t-out="user.signature">--<br/>Mitchell Admin</t>
