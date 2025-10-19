@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data >
+
+        <record id="lead_declaration_mail_template" model="mail.template">
+            <field name="name">Odoo: Lead Declaration</field>
+            <field name="model_id" ref="crm.model_crm_lead"/>
+            <field name="subject">Déclaration de lead: {{ object.partner_id.name }} </field>
+            <field name="email_from">{{ user.email_formatted }}</field>
+            <field name="email_to">{{ ctx.get('email_to') or 'veph@odoo.com' }}</field>
+            <field name="body_html" type="html">
+<div>
+<p>Bonjour Philippe,</p>
+<p>Nous souhaitons te déclarer un nouveau lead : <span t-out="object.sudo().partner_id.name"></span></p>
+<p t-if="object.sudo().excel_sheet_url">Tu trouveras les détails dans l'Excel en suivant le lien suivant : <a t-att-href="object.sudo().excel_sheet_url"><span t-out="object.sudo().excel_sheet_url" /></a></p>
+<p>Merci, passe une belle journée!</p>
+<t t-if="not is_html_empty(user.signature)">
+    <t t-out="user.signature">--<br/>Mitchell Admin</t>
+</t>
+</div>
+            </field>
+        </record>
+
+    </data>
+</odoo>

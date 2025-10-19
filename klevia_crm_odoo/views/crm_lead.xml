@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+
+        <record id="crm_lead_view_form" model="ir.ui.view">
+            <field name="name">crm_lead_view_form</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="klevia_crm.crm_lead_view_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//header" position="inside">
+                    <button name="action_send_lead_declaration_mail" type="object" string="Send to Odoo" invisible="sent_to_odoo" />
+                </xpath>
+
+                <xpath expr="//group[@name='opportunity_partner']//field[@name='main_contact_id']/.." position="inside">
+                    <label for="sent_to_odoo" />
+                    <div  class="d-flex justify-content-between align-items-center">
+                        <field name="sent_to_odoo" class="oe_inline mr-1" />
+                        <button name="generate_odoo_table" type="object" class="btn-link  ml-auto" invisible="not partner_id or not main_contact_id">
+                            <i title="Generate Odoo Table" role="img" aria-label="Generate Odoo Table" class="fa fa-table fa-fw"/>
+                            Generate Table
+                        </button>
+                    </div>
+                    <field name="excel_sheet_url" widget="url" />
+                </xpath>
+
+<!--                <xpath expr="//field[@name='tag_ids']" position="after">-->
+<!--                </xpath>-->
+            </field>
+        </record>
+
+    </data>
+</odoo>

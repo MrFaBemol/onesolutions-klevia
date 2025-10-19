@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="crm_lead_view_form" model="ir.ui.view">
+            <field name="name">crm_lead_view_form</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_lead_view_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='opportunity_partner']//field[@name='partner_id']" position="attributes">
+                    <attribute name="string">Customer</attribute>
+                </xpath>
+                <xpath expr="//group[@name='opportunity_partner']//field[@name='partner_id']" position="after">
+                    <field name="main_contact_id" widget="res_partner_many2one" invisible="not partner_id" />
+<!--                    <div class="alert alert-warning text-center" role="alert" invisible="main_contact_id.parent_id == partner_id">-->
+<!--                        The company of the contact should be the customer, please check the contact form. -->
+<!--                    </div>-->
+                    <field name="onedrive_folder_url" widget="url"/>
+                </xpath>
+
+
+<!--               BELOW : Just in case, keep in mind that if we activate leads, we will need  to have that kind of XPATH also ! -->
+                <xpath expr="//group[@name='lead_partner']//field[@name='partner_id']" position="after">
+                    <field name="main_contact_id" widget="res_partner_many2one" />
+                </xpath>
+                
+                <xpath expr="//page[@name='lead']//label[@for='contact_name_page_lead']/.." position="inside">
+                    <xpath expr="//group[@name='opportunity_partner']//label[@for='email_from']" position="move" />
+                    <xpath expr="//group[@name='opportunity_partner']//field[@name='email_from']/.." position="move" />
+                    <xpath expr="//group[@name='opportunity_partner']//label[@for='phone']" position="move" />
+                    <xpath expr="//group[@name='opportunity_partner']//field[@name='phone']/.." position="move" />
+                </xpath>
+
+                <xpath expr="//label[@for='date_deadline']/../field[@name='user_id']" position="after">
+                    <field name="odoo_consultant_id" widget="many2one_avatar_user" />
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>
