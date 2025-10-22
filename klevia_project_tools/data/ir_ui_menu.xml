@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <menuitem name="Project Tools"
+                    id="klevia_project_tools_menu" sequence="1000"
+                    parent="project.menu_main_pm">
+            <menuitem name="Open Project Tools"
+                        id="project_tools_menu" sequence="10"
+                        action="project_tools_wizard_action"/>
+
+
+            <menuitem name="Accounting"
+                        id="project_tools_accounting" sequence="20" />
+
+
+<!--            <menuitem name="COA Converter"-->
+<!--                        id="project_tools_coa_converter_menu" sequence="10"-->
+<!--                        action="project_tools_coa_converter_wizard_action"/>-->
+        </menuitem>
+
+    </data>
+</odoo>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+            <menuitem name="COA Converter"
+                        id="project_tools_coa_converter_menu" sequence="10"
+                        parent="klevia_project_tools.project_tools_accounting"
+                        action="project_tools_coa_converter_wizard_action" />
+
+    </data>
+</odoo>
