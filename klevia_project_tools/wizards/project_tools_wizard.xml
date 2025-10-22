@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="project_tools_wizard_form" model="ir.ui.view">
+            <field name="name">project.tools.wizard.form</field>
+            <field name="model">project.tools.wizard</field>
+            <field name="arch" type="xml">
+                <form>
+<!--                    <group string="Accounting" >-->
+<!--                        <button type="object" name="open_coa_converter" class="btn-link" string="Chart of accounts converter" colspan="2" />-->
+<!--                    </group>-->
+                </form>
+            </field>
+        </record>
+
+
+        <record id="project_tools_wizard_action" model="ir.actions.act_window">
+            <field name="name">Project Tools</field>
+            <field name="res_model">project.tools.wizard</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="target">new</field>
+            <field name="view_mode">form</field>
+        </record>
+
+<!--        <record id="action_project_tools_main_wizard" model="ir.actions.server">-->
+<!--            <field name="name">Open Project Tools</field>-->
+<!--            <field name="model_id" ref="klevia_project_tools.model_project_tools_main_wizard"/>-->
+<!--            <field name="binding_model_id" ref="project.model_project_task"/>-->
+<!--            <field name="state">code</field>-->
+<!--            <field name="code">action = records.action_project_tools_main_wizard()</field>-->
+<!--        </record>-->
+
+        <record id="action_project_tools_wizard" model="ir.actions.act_window">
+            <field name="name">Project Tools</field>
+            <field name="res_model">project.tools.wizard</field>
+            <field name='view_mode'>form</field>
+             <field name="target">new</field>
+            <field name="binding_model_id" ref="project.model_project_task"/>
+            <field name="binding_view_types">form</field>
+        </record>
+
+
+    </data>
+</odoo>

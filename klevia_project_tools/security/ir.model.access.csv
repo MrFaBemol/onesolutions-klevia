@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+project_tools_wizard_rule_access,project_tools_wizard_rule_access,model_project_tools_wizard,project_tools_access_group,1,1,1,1

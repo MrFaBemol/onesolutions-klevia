@@ -19,6 +19,7 @@
 
         # Views
         'views/account_analytic_line.xml',
+        'views/hr_employee.xml',
         'views/project_task.xml',
 
         # Reports

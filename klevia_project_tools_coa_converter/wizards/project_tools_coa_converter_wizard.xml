@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="project_tools_coa_converter_wizard_form" model="ir.ui.view">
+            <field name="name">project.tools.coa.converter.wizard.form</field>
+            <field name="model">project.tools.coa.converter.wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <field name="state" invisible="1"/>
+                    <sheet>
+                        <group invisible="state != '0'">
+                            <field name="file_from_name" invisible="1" />
+                            <field name="file_to_name" invisible="1" />
+                            <field name="file_from" widget="binary" filename="file_from_name" string="Odoo export"/>
+                            <field name="file_to" widget="binary" filename="file_to_name" string="Client file"/>
+                        </group>
+
+
+                        <group invisible="state != '1'">
+                            <field name="show_all_lines" widget="boolean_toggle" />
+
+                            <field name="active_line_ids" colspan="2" nolabel="1" invisible="show_all_lines">
+                                <list editable="bottom" decoration-danger="in_odoo and not in_client" decoration-success="in_client and not in_odoo">
+                                    <field name="code" />
+                                    <field name="name" />
+                                    <field name="old_name" decoration-muted="True" />
+                                    <field name="account_type" />
+                                    <field name="currency_id" />
+                                    <field name="reconcile" />
+                                    <field name="deprecated" />
+                                </list>
+                            </field>
+                            <field name="line_ids" colspan="2" nolabel="1" invisible="not show_all_lines">
+                                <list editable="bottom" decoration-danger="deprecated" decoration-success="in_client and not in_odoo">
+                                    <field name="code" />
+                                    <field name="name" />
+                                    <field name="old_name" decoration-muted="True" />
+                                    <field name="account_type" />
+                                    <field name="currency_id" />
+                                    <field name="reconcile" />
+                                    <field name="deprecated" />
+                                </list>
+                            </field>
+                        </group>
+
+
+
+                        <group invisible="state != '3'">
+                            <field name="file_result_name" invisible="1" />
+                            <field name="file_result" widget="binary" filename="file_result_name" string="Result"/>
+                        </group>
+
+                    </sheet>
+
+                    <footer>
+                        <button name="action_upload_files" string="Next" type="object" class="btn-primary" invisible="state != '0'" />
+                        <button name="action_validate_accounts" string="Next" type="object" class="btn-primary" invisible="state != '1'" />
+                        <button special="cancel" string="Close" class="btn-secondary"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="project_tools_coa_converter_wizard_action" model="ir.actions.act_window">
+            <field name="name">COA Converter</field>
+            <field name="res_model">project.tools.coa.converter.wizard</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="target">new</field>
+            <field name="view_mode">form</field>
+        </record>
+
+
+    </data>
+</odoo>
