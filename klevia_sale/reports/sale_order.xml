@@ -35,5 +35,38 @@
 
         </template>
 
+
+        <template id="report_saleorder_document_inherit_sale_management" inherit_id="sale_management.report_saleorder_document_inherit_sale_management" >
+
+
+
+
+            <xpath expr="//table[@name='table_optional_products']" position="attributes">
+                <attribute name="class" add="table-borderless" separator=" "/>
+            </xpath>
+
+            <xpath expr="//table[@name='table_optional_products']//td[@name='th_option_price_unit']" position="attributes">
+                <attribute name="width">15%</attribute>
+            </xpath>
+            <xpath expr="//table[@name='table_optional_products']//td[@name='th_option_price_unit']" position="after">
+                <td name="th_option_quantity" class="text-end" width="15%">Quantity</td>
+                <td name="th_option_quantity" class="text-end"  width="15%">Total</td>
+            </xpath>
+
+
+            <xpath expr="//table[@name='table_optional_products']//td[@name='td_option_price_unit']" position="after">
+                <td name="td_option_quantity">
+                    <strong class="text-end">
+                        <div t-field="option.quantity" />
+                    </strong>
+                </td>
+                <td name="td_option_total_price">
+                    <strong class="text-end">
+                        <div t-field="option.total_price" t-options='{"widget": "monetary", "display_currency": doc.currency_id}' />
+                    </strong>
+                </td>
+            </xpath>
+        </template>
+
     </data>
 </odoo>

@@ -4,16 +4,107 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 17.0+e\n"
+"Project-Id-Version: Odoo Server 18.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-19 12:04+0000\n"
-"PO-Revision-Date: 2024-08-19 12:04+0000\n"
+"POT-Creation-Date: 2025-11-07 09:29+0000\n"
+"PO-Revision-Date: 2025-11-07 10:31+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
+"X-Generator: Poedit 3.0.1\n"
+
+#. module: klevia_sale
+#: model_terms:ir.ui.view,arch_db:klevia_sale.view_order_form
+msgid ""
+"<span class=\"oe_inline mr-1\">&amp;nbsp; hours</span>\n"
+"                            <br/>"
+msgstr ""
+"<span class=\"oe_inline mr-1\">&amp;nbsp; heures</span>\n"
+"                            <br/>"
+
+#. module: klevia_sale
+#: model_terms:ir.ui.view,arch_db:klevia_sale.view_order_form
+msgid "<span class=\"oe_inline\">&amp;nbsp; days</span>"
+msgstr "<span class=\"oe_inline\">&amp;nbsp; jours</span>"
+
+#. module: klevia_sale
+#: model:ir.model.fields,field_description:klevia_sale.field_utm_source__active
+msgid "Active"
+msgstr ""
+
+#. module: klevia_sale
+#: model:ir.model.fields,field_description:klevia_sale.field_res_partner_arr_history_line__amount
+msgid "Amount"
+msgstr "Montant"
+
+#. module: klevia_sale
+#: model:ir.model.fields,field_description:klevia_sale.field_res_partner__arr_history_line_ids
+#: model:ir.model.fields,field_description:klevia_sale.field_res_users__arr_history_line_ids
+msgid "Arr History Line"
+msgstr ""
+
+#. module: klevia_sale
+#: model:ir.model.fields.selection,name:klevia_sale.selection__utm_source__color__blue
+msgid "Blue"
+msgstr "Bleu"
+
+#. module: klevia_sale
+#: model:ir.model.fields,field_description:klevia_sale.field_crm_lead__source_color
+#: model:ir.model.fields,field_description:klevia_sale.field_utm_source__color
+msgid "Color"
+msgstr "Couleur"
+
+#. module: klevia_sale
+#: model:ir.model,name:klevia_sale.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: klevia_sale
+#: model:ir.model.fields,field_description:klevia_sale.field_res_partner_arr_history_line__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: klevia_sale
+#: model:ir.model.fields,field_description:klevia_sale.field_res_partner_arr_history_line__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: klevia_sale
+#: model:ir.model.fields,field_description:klevia_sale.field_res_partner_arr_history_line__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: klevia_sale
+#: model:ir.model.fields.selection,name:klevia_sale.selection__utm_source__color__green
+msgid "Green"
+msgstr "Vert"
+
+#. module: klevia_sale
+#: model:ir.model.fields.selection,name:klevia_sale.selection__utm_source__color__grey
+msgid "Grey"
+msgstr "Gris"
+
+#. module: klevia_sale
+#: model_terms:ir.ui.view,arch_db:klevia_sale.sale_subscription_view_tree
+#: model_terms:ir.ui.view,arch_db:klevia_sale.view_partner_form
+msgid "Historic ARR"
+msgstr ""
+
+#. module: klevia_sale
+#: model:ir.model.fields,field_description:klevia_sale.field_res_partner__arr_history_amount_total
+#: model:ir.model.fields,field_description:klevia_sale.field_res_users__arr_history_amount_total
+#: model:ir.model.fields,field_description:klevia_sale.field_sale_order__partner_arr_history_amount_total
+msgid "Historic ARR (total)"
+msgstr ""
+
+#. module: klevia_sale
+#: model:ir.model.fields,field_description:klevia_sale.field_res_partner_arr_history_line__id
+msgid "ID"
+msgstr ""
 
 #. module: klevia_sale
 #: model:ir.model.fields,field_description:klevia_sale.field_sale_order__include_sow
@@ -21,9 +112,69 @@ msgid "Include Statement of Work"
 msgstr "Inclure le détail des prestations"
 
 #. module: klevia_sale
+#: model:ir.model.fields,field_description:klevia_sale.field_res_partner_arr_history_line__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: klevia_sale
+#: model:ir.model.fields,field_description:klevia_sale.field_res_partner_arr_history_line__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: klevia_sale
+#: model:ir.model,name:klevia_sale.model_crm_lead
+msgid "Lead/Opportunity"
+msgstr "Piste/opportunité"
+
+#. module: klevia_sale
+#: model:ir.model.fields,field_description:klevia_sale.field_res_partner_arr_history_line__name
+msgid "Name"
+msgstr "Nom"
+
+#. module: klevia_sale
+#: model_terms:ir.ui.view,arch_db:klevia_sale.view_order_form
+msgid "PDF Preview"
+msgstr "Aperçu PDF"
+
+#. module: klevia_sale
+#: model:ir.model.fields,field_description:klevia_sale.field_res_partner_arr_history_line__partner_id
+msgid "Partner"
+msgstr "Partenaire"
+
+#. module: klevia_sale
+#: model:ir.model.fields,field_description:klevia_sale.field_sale_order_template__payment_term_id
+msgid "Payment terms"
+msgstr "Conditions de paiement"
+
+#. module: klevia_sale
+#: model_terms:ir.ui.view,arch_db:klevia_sale.report_saleorder_document_inherit_sale_management
+msgid "Quantity"
+msgstr "Quantité"
+
+#. module: klevia_sale
+#: model:ir.model,name:klevia_sale.model_sale_order_template
+msgid "Quotation Template"
+msgstr "Modèle de devis"
+
+#. module: klevia_sale
+#: model:ir.model.fields.selection,name:klevia_sale.selection__utm_source__color__red
+msgid "Red"
+msgstr "Rouge"
+
+#. module: klevia_sale
+#: model:ir.model,name:klevia_sale.model_sale_order_option
+msgid "Sale Options"
+msgstr "Options de vente"
+
+#. module: klevia_sale
 #: model:ir.model,name:klevia_sale.model_sale_order
 msgid "Sales Order"
-msgstr "Bon de commande"
+msgstr "Commande client"
+
+#. module: klevia_sale
+#: model:ir.model.fields,field_description:klevia_sale.field_utm_source__sequence
+msgid "Sequence"
+msgstr ""
 
 #. module: klevia_sale
 #: model_terms:ir.ui.view,arch_db:klevia_sale.view_order_form
@@ -41,3 +192,49 @@ msgstr "Détail des Prestations"
 #: model_terms:ir.ui.view,arch_db:klevia_sale.view_order_form
 msgid "Statement of work"
 msgstr "Détail des prestations"
+
+#. module: klevia_sale
+#: model_terms:ir.ui.view,arch_db:klevia_sale.report_saleorder_document_inherit_sale_management
+#: model_terms:ir.ui.view,arch_db:klevia_sale.view_partner_form
+msgid "Total"
+msgstr "Total"
+
+#. module: klevia_sale
+#: model:ir.model.fields,field_description:klevia_sale.field_sale_order_option__total_price
+msgid "Total Price"
+msgstr "Prix total"
+
+#. module: klevia_sale
+#: model_terms:ir.ui.view,arch_db:klevia_sale.view_order_form
+msgid "Total Time"
+msgstr "Temps total"
+
+#. module: klevia_sale
+#: model:ir.model.fields,field_description:klevia_sale.field_sale_order__total_days
+msgid "Total days"
+msgstr "Total en jours"
+
+#. module: klevia_sale
+#: model:ir.model.fields,field_description:klevia_sale.field_sale_order__total_hours
+msgid "Total hours"
+msgstr "Total en heures"
+
+#. module: klevia_sale
+#: model:ir.model,name:klevia_sale.model_utm_source
+msgid "UTM Source"
+msgstr "Source UTM"
+
+#. module: klevia_sale
+#: model:ir.model.fields.selection,name:klevia_sale.selection__utm_source__color__yellow
+msgid "Yellow"
+msgstr "Jaunne"
+
+#. module: klevia_sale
+#: model:ir.model,name:klevia_sale.model_res_partner_arr_history_line
+msgid "res.partner.arr.history.line"
+msgstr ""
+
+#. module: klevia_sale
+#: model_terms:ir.ui.view,arch_db:klevia_sale.report_saleorder_document
+msgid "units"
+msgstr "unités"

@@ -1,14 +1,14 @@
 {
     'name': "Klevia Sale",
     'category': "Sales",
-    'version': "18.0.1.0.8",
+    'version': "18.0.1.0.9",
     'installable': True,
 
     'license': "OPL-1",
     'author': "OneSolutions SA - Gautier Casabona",
     'website': "https://www.onesolutions.io",
 
-    'depends': ['sale_subscription', 'crm'],
+    'depends': ['sale_subscription', 'crm', 'sale_management'],
     "assets": {
         "web.assets_backend": [],
     },
