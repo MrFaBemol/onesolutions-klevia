@@ -1,7 +1,7 @@
 {
     'name': "Klevia - CRM odoo specific",
     'category': "CRM",
-    'version': "18.0.0.0.2",
+    'version': "19.0.0.0.2",
     'installable': True,
     'sequence': 1,
 
