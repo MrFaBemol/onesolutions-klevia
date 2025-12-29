@@ -215,9 +215,10 @@ class ProjectToolsCoaConverterLineAccount(models.TransientModel):
     _name = "project.tools.coa.converter.wizard.line.account"
     _description = "COA Preview Line"
 
-    _sql_constraints = [
-        ('code_uniq', 'unique (code, wizard_id)', "Two accounts can't share the same code !"),
-    ]
+    _code_uniq = models.Constraint(
+        'unique (code, wizard_id)',
+        "Two accounts can't share the same code !",
+    )
 
     wizard_id = fields.Many2one("project.tools.coa.converter.wizard", required=True, ondelete="cascade")
 

@@ -1,7 +1,7 @@
 {
     'name': "Klevia Project",
     'category': "Project",
-    'version': "18.0.1.0.2",
+    'version': "19.0.1.0.2",
     'installable': True,
 
     'license': "OPL-1",
@@ -19,7 +19,6 @@
 
         # Views
         'views/account_analytic_line.xml',
-        'views/hr_employee.xml',
         'views/project_task.xml',
 
         # Reports
