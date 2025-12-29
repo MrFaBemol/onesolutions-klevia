@@ -81,7 +81,7 @@
                     </header>
                     <field name="category_company_id" invisible="True"/>
                     <sheet>
-                        <div class="oe_title">
+                        <div class="oe_title" colspan="2">
                             <label for="name"/>
                             <h1>
                                 <field name="name" placeholder="e.g. https://onesolutions.odoo.com" widget="url" />

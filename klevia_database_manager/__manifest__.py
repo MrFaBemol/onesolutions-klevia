@@ -1,7 +1,7 @@
 {
     'name': "Klevia Database Manager",
     'category': "Services/Technical",
-    'version': "18.0.1.0.1",
+    'version': "19.0.1.0.1",
     'installable': True,
 
     'license': "OPL-1",
