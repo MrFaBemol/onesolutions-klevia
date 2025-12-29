@@ -4,8 +4,8 @@
         <xpath expr="//t[@t-foreach='lines_to_report']" position="before">
             <t t-set="section_number" t-value="doc.section_start_number"/>
         </xpath>
-        <xpath expr="//td[@name='td_section_line']/span" position="before">
-            <t t-if="doc.add_section_number and line.display_type == 'line_section'">
+        <xpath expr="//td[@name='td_section_name']/span" position="before">
+            <t t-if="doc.add_section_number and is_section">
                 <span>
                     <t t-esc="section_number"/> -
                 </span>
