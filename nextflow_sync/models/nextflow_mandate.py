@@ -15,9 +15,10 @@ _logger = logging.getLogger(__name__)
 class NextflowMandate(models.Model):
     _inherit = "nextflow.mandate"
 
-    _sql_constraints = [
-        ('check_sync_interval_value', 'CHECK(sync_interval_value > 0)', 'The frequency value for synchronization should be higher than 0.'),
-    ]
+    _check_sync_interval_value = models.Constraint(
+        'CHECK(sync_interval_value > 0)',
+        "The frequency value for synchronization should be higher than 0.",
+    )
 
     activate_sync = fields.Boolean()
     user_login = fields.Char()
