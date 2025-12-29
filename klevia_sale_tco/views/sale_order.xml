@@ -43,7 +43,7 @@
                                 </div>
                             </group>
                             <group string="Options">
-                                <div class="alert alert-info text-center mb-0" role="alert" >
+                                <div class="alert alert-info text-center mb-0" role="alert" colspan="2">
                                     This is informative, do not trust results blindly.
                                 </div>
                                 <field name="odoo_need_payroll" widget="boolean_toggle"  options="{'autosave': False}" />

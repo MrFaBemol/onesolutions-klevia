@@ -19,17 +19,17 @@ class SaleOrder(models.Model):
         store=True,
     )
 
-    @api.depends('order_line.product_uom_qty', 'order_line.product_uom')
+    @api.depends('order_line.product_uom_qty', 'order_line.product_uom_id')
     def _compute_total_hours_days(self):
         uom_hour = self.env.ref('uom.product_uom_hour')
-        uom_categ_wtime = self.env.ref('uom.uom_categ_wtime')
 
         for order in self:
             total = 0.0
             for line in order.order_line:
-                if line.product_uom.category_id == uom_categ_wtime:
-                    # conversion automatique vers heures
-                    qty_in_hours = line.product_uom._compute_quantity(line.product_uom_qty, uom_hour)
+                if line.product_uom_id == uom_hour:
+                    total += line.product_uom_qty
+                elif line.product_uom_id.relative_uom_id == uom_hour:
+                    qty_in_hours = line.product_uom_id._compute_quantity(line.product_uom_qty, uom_hour) # conversion automatique vers heures
                     total += qty_in_hours
             order.total_hours = total
             order.total_days = round((total / 8) * 4) / 4

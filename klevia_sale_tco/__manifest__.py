@@ -1,7 +1,7 @@
 {
     'name': "Klevia Sale - TCO calculator (for Odoo)",
     'category': "Sales",
-    'version': "18.0.0.0.1",
+    'version': "19.0.0.0.1",
     'installable': True,
     'sequence': 1,
 

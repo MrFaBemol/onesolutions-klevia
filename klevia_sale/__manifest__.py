@@ -1,7 +1,7 @@
 {
     'name': "Klevia Sale",
     'category': "Sales",
-    'version': "18.0.1.0.9",
+    'version': "19.0.1.0.9",
     'installable': True,
 
     'license': "OPL-1",

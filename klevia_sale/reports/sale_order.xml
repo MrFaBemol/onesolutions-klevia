@@ -15,57 +15,37 @@
                 </div>
             </xpath>
 
+<!--            Replace "Salesperson" label-->
+            <xpath expr="//div[@t-if='doc.user_id.name']//strong" position="replace">
+                <strong>Contact</strong>
+            </xpath>
 
-<!--            Full column for UOM-->
-
-            <xpath expr="//td[@name='td_quantity']/span[@t-field='line.product_uom']" position="replace" />
-            <xpath expr="//td[@name='td_quantity']/span[@t-if='line.product_packaging_id']" position="replace" />
+<!--            Full column for UOM
+                IMPORTANT : we add +1 to the colspan of section/subsection at the end
+-->
+            <xpath expr="//td[@name='td_product_quantity']/span[@t-field='line.product_uom_id']" position="replace" />
+            <xpath expr="//td[@name='td_product_quantity']/span[@t-if='line.product_uom_id != line.product_id.uom_id']" position="replace" />
 
             <xpath expr="//th[@name='th_quantity']" position="after">
                 <th name="th_uom" />
             </xpath>
-            <xpath expr="//td[@name='td_quantity']" position="after">
+            <xpath expr="//td[@name='td_product_quantity']" position="after">
                 <td name="td_uom" class="text-end">
-                    <span t-field="line.product_uom">units</span>
-                    <span t-if="line.product_packaging_id">
-                        (<span t-field="line.product_packaging_qty" t-options='{"widget": "integer"}'/> <span t-field="line.product_packaging_id"/>)
+                    <span t-field="line.product_uom_id">units</span>
+                    <span t-if="line.product_uom_id != line.product_id.uom_id" class="text-muted small">
+                        <t t-set="quantity_in_product_uom" t-value="line.product_uom_id._compute_quantity(line.product_uom_qty, line.product_id.uom_id)"/>
+                        <br/><span t-esc="quantity_in_product_uom" t-options="{'widget': 'float', 'decimal_precision': 'Product Unit'}"/> <span t-field="line.product_id.uom_id"/>
                     </span>
                 </td>
             </xpath>
 
-        </template>
-
-
-        <template id="report_saleorder_document_inherit_sale_management" inherit_id="sale_management.report_saleorder_document_inherit_sale_management" >
-
-
-
-
-            <xpath expr="//table[@name='table_optional_products']" position="attributes">
-                <attribute name="class" add="table-borderless" separator=" "/>
-            </xpath>
-
-            <xpath expr="//table[@name='table_optional_products']//td[@name='th_option_price_unit']" position="attributes">
-                <attribute name="width">15%</attribute>
-            </xpath>
-            <xpath expr="//table[@name='table_optional_products']//td[@name='th_option_price_unit']" position="after">
-                <td name="th_option_quantity" class="text-end" width="15%">Quantity</td>
-                <td name="th_option_quantity" class="text-end"  width="15%">Total</td>
+            <xpath expr="//t[@t-set='section_name_colspan']" position="after">
+                <t t-set="section_name_colspan" t-value="section_name_colspan+1" />
             </xpath>
 
 
-            <xpath expr="//table[@name='table_optional_products']//td[@name='td_option_price_unit']" position="after">
-                <td name="td_option_quantity">
-                    <strong class="text-end">
-                        <div t-field="option.quantity" />
-                    </strong>
-                </td>
-                <td name="td_option_total_price">
-                    <strong class="text-end">
-                        <div t-field="option.total_price" t-options='{"widget": "monetary", "display_currency": doc.currency_id}' />
-                    </strong>
-                </td>
-            </xpath>
+
+
         </template>
 
     </data>
