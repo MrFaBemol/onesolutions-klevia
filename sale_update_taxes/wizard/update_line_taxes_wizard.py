@@ -46,5 +46,5 @@ class UpdateLineTaxesWizardLine(models.TransientModel):
     product_id = fields.Many2one(related='sale_order_line_id.product_id', readonly=True)
     price_unit = fields.Float(related='sale_order_line_id.price_unit', readonly=True)
     is_update_tax = fields.Boolean(string="Update Taxes", readonly=False)
-    tax_ids = fields.Many2many(related='sale_order_line_id.tax_id', readonly=True)
+    tax_ids = fields.Many2many(related='sale_order_line_id.tax_ids', readonly=True)
 
