@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- =====================
+             SEARCH VIEW
+        ====================== -->
+        <record id="dbm_instance_search" model="ir.ui.view">
+            <field name="name">dbm.instance.search</field>
+            <field name="model">dbm.instance</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name" string="URL"/>
+                    <field name="partner_id"/>
+                    <field name="technical_name"/>
+
+                    <filter name="favorite"
+                            string="Favorites"
+                            domain="[('is_favorite','=',True)]"/>
+
+                    <filter name="to_install"
+                            string="To Install"
+                            domain="[('to_install','=',True)]"/>
+
+                    <filter name="to_upgrade"
+                            string="To Upgrade"
+                            domain="[('to_upgrade','=',True)]"/>
+
+                    <separator/>
+
+                    <group>
+                        <filter string="Status" name="groupby_stage_id" context="{'group_by':'stage_id'}"/>
+                        <filter string="Hosting" name="groupby_hosting_id" context="{'group_by':'hosting_id'}"/>
+                        <filter string="Version" name="groupby_version_id" context="{'group_by':'version_id'}"/>
+                        <filter string="Responsible" name="groupby_responsible_id" context="{'group_by':'responsible_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- =====================
+             LIST VIEW
+        ====================== -->
+        <record id="dbm_instance_list" model="ir.ui.view">
+            <field name="name">dbm.instance.list</field>
+            <field name="model">dbm.instance</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="to_install" column_invisible="1"/>
+                    <field name="to_upgrade" column_invisible="1"/>
+                    <field name="stage_color" column_invisible="1"/>
+                    <field name="odoo_sh_url" column_invisible="1"/>
+                    <field name="github_url" column_invisible="1"/>
+
+                    <field name="is_favorite" invisible="False" widget="boolean_favorite" nolabel="1" />
+                    <field name="name" widget="url"/>
+                    <button class="oi oi-odoo" invisible="not odoo_sh_url" type="object" name="action_open_sh_project" />
+                    <button icon="fa-github" invisible="not github_url" type="object" name="action_open_github" />
+                    <button icon="fa-wrench" invisible="not to_install" class="decoration-info" />
+                    <button icon="fa-upload" invisible="not to_upgrade" class="decoration-info" />
+
+
+                    <field name="technical_name"/>
+                    <field name="version_id"/>
+                    <field name="hosting_id"/>
+                    <field name="responsible_id" optional="hide"/>
+
+<!--                    <button icon="fa-sign-in" string="Connect" invisible="0"/>-->
+                    <field name="partner_id" widget="many2one_avatar" />
+                    <field name="stage_id"
+                           widget="badge"
+                           decoration-muted="stage_color == 'muted'"
+                           decoration-info="stage_color == 'info'"
+                           decoration-success="stage_color == 'success'"
+                           decoration-danger="stage_color == 'danger'"
+                    />
+                </list>
+            </field>
+        </record>
+
+        <!-- =====================
+             FORM VIEW
+        ====================== -->
+        <record id="dbm_instance_form" model="ir.ui.view">
+            <field name="name">dbm.instance.form</field>
+            <field name="model">dbm.instance</field>
+            <field name="arch" type="xml">
+                <form string="Instance">
+                    <field name="is_odoo_sh" invisible="1"/>
+                    <field name="to_install" invisible="1" />
+                    <field name="to_upgrade" invisible="1" />
+
+                    <header>
+                        <field name="stage_id" widget="statusbar" options="{'clickable': '1', 'fold_field': 'fold'}" />
+
+                        <button name="action_open_request_wizard"
+                                type="object"
+                                string="New Request"
+                                class="btn-primary" />
+
+
+                        <button name="action_mark_installed"
+                                type="object"
+                                string="Mark Installed"
+                                invisible="not to_install" />
+
+                        <button name="action_mark_upgraded"
+                                type="object"
+                                string="Mark Upgraded"
+                                invisible="not to_upgrade" />
+
+
+                        <button name="action_open_link"
+                                type="object"
+                                string="Open Instance"
+                                class="btn-secondary"/>
+                    </header>
+
+                    <sheet>
+                        <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/>
+                        <widget name="web_ribbon" title="To install" bg_color="text-bg-info" invisible="not to_install"/>
+                        <widget name="web_ribbon" title="To upgrade" bg_color="text-bg-info" invisible="not to_upgrade"/>
+
+                        <div class="oe_title">
+                            <label for="name" string="URL"/>
+                            <h1>
+                                <div class="d-flex">
+                                    <field name="is_favorite" widget="boolean_favorite" class="me-2" nolabel="1"/>
+                                    <field class="text-break" name="name" options="{'line_breaks': False}" widget="text" placeholder="https://onesolutions.odoo.com/"/>
+                                </div>
+                            </h1>
+                        </div>
+
+
+                        <group>
+                            <group>
+                                <field name="version_id"/>
+                                <field name="category_id" />
+                                <field name="hosting_id" />
+                                <field name="tag_ids" widget="many2many_tags" options="{'horizontal': true, 'color_field': 'color'}" />
+                            </group>
+                            <group>
+                                <field name="partner_id" placeholder="Client"  widget="many2one_avatar" />
+                                <field name="subscription_code"/>
+                                <field name="license_type"/>
+                                <field name="responsible_id" widget="many2one_avatar_user" />
+                            </group>
+                        </group>
+
+                        <notebook>
+
+                            <page string="Technical" name="technical">
+                                <group>
+                                    <group>
+                                        <field name="technical_name"/>
+                                        <field name="github_url" widget="url" />
+                                        <field name="odoo_sh_url" widget="url" invisible="not is_odoo_sh"/>
+                                    </group>
+                                    <group invisible="not is_on_premise" >
+                                        <field name="server_id"/>
+                                        <field name="ssh_user"/>
+                                        <field name="ssh_host"/>
+                                        <field name="ssh_port"/>
+                                        <field name="ssh_notes"/>
+
+                                        <field name="vpn_required"/>
+                                        <field name="vpn_profile_file_name" invisible="1"/>
+                                        <field name="vpn_profile_file" filename="vpn_profile_file_name" invisible="not vpn_required" />
+                                    </group>
+                                </group>
+
+                                <separator />
+                                <field name="technical_notes" nolabel="1" colspan="2" placeholder="Write any technical informations here..."/>
+                            </page>
+
+                        </notebook>
+
+                    </sheet>
+
+                    <chatter/>
+                </form>
+            </field>
+        </record>
+
+        <!-- =====================
+             ACTION
+        ====================== -->
+        <record id="action_dbm_instance" model="ir.actions.act_window">
+            <field name="name">Instances</field>
+            <field name="res_model">dbm.instance</field>
+            <field name="view_mode">list,form</field>
+            <field name="search_view_id" ref="dbm_instance_search"/>
+            <field name="context">{'search_default_favorite': 1}</field>
+        </record>
+
+    </data>
+</odoo>

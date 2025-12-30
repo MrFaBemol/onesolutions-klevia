@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- ROOT MENU -->
+        <menuitem id="menu_dbm_root"
+                  name="Database Manager"
+                  groups=""
+                  web_icon="klevia_dbm_base,static/description/icon.png"
+                  sequence="10">
+
+
+
+            <!-- DASHBOARD -->
+            <menuitem id="menu_dbm_instances" name="Dashboard" action="action_dbm_instance" sequence="10" />
+
+            <!-- REQUESTS -->
+            <menuitem id="menu_dbm_requests" name="Requests" sequence="20">
+                <menuitem id="menu_dbm_requests_all" name="All Requests" action="action_dbm_request_all" sequence="1"/>
+                <menuitem id="menu_dbm_requests_install" name="Install" action="action_dbm_request_install" sequence="10"/>
+                <menuitem id="menu_dbm_requests_upgrade" name="Upgrade" action="action_dbm_request_upgrade" sequence="20"/>
+            </menuitem>
+
+
+
+            <!-- CONFIG -->
+            <menuitem id="menu_dbm_config" name="Configuration" sequence="90">
+                <menuitem id="menu_dbm_categories" name="Categories" action="action_dbm_category" sequence="10"/>
+                <menuitem id="menu_dbm_hostings" name="Hostings" action="action_dbm_hosting" sequence="20"/>
+                <menuitem id="menu_dbm_servers" name="Servers" action="action_dbm_server"  sequence="30"/>
+                <menuitem id="menu_dbm_versions" name="Versions" action="action_dbm_version" sequence="40"/>
+                <menuitem id="menu_dbm_tags" name="Tags" action="action_dbm_tag" sequence="50"/>
+                <menuitem id="menu_dbm_instance_stages" name="Instance Stages" action="dbm_instance_stage_action" sequence="50"/>
+            </menuitem>
+
+        </menuitem>
+
+
+    </data>
+</odoo>

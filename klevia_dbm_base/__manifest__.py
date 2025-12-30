@@ -11,7 +11,7 @@
     'depends': ['mail'],
     'assets': {
         'web.assets_backend': [
-            'klevia_database_manager/static/src/**/*',
+            'klevia_dbm_base/static/src/**/*',
         ],
     },
 
@@ -22,10 +22,22 @@
 
         # Views
         'views/dbm_category.xml',
+        'views/dbm_hosting.xml',
+        'views/dbm_instance.xml',
+        'views/dbm_instance_stage.xml',
+        'views/dbm_request.xml',
         'views/dbm_server.xml',
-        'views/dbm_database.xml',
+        'views/dbm_tag.xml',
+        'views/dbm_version.xml',
 
         # Reports
+
+        # Data
+        'data/dbm_category.xml',
+        'data/dbm_hosting.xml',
+        'data/dbm_instance_stage.xml',
+        'data/dbm_request_stage.xml',
+        'data/dbm_version.xml',
 
         # Menus
         'data/ir_ui_menu.xml',

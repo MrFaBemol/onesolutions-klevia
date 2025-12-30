@@ -6,4 +6,4 @@ _logger = logging.getLogger(__name__)
 class ResPartner(models.Model):
     _inherit = "res.partner"
 
-    database_ids = fields.One2many("dbm.database", "partner_id", string="Databases")
+    database_ids = fields.One2many("dbm.instance", "partner_id", string="Databases")

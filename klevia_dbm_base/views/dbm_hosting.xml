@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- SEARCH -->
+        <record id="dbm_hosting_search" model="ir.ui.view">
+            <field name="name">dbm.hosting.search</field>
+            <field name="model">dbm.hosting</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="category_id"/>
+                    <filter string="On-Premise"  name="filter_on_premise" domain="[('is_on_premise','=',True)]"/>
+                    <filter string="Archived" name="filter_archived" domain="[('active','=',False)]"/>
+                </search>
+            </field>
+        </record>
+
+        <!-- LIST -->
+        <record id="dbm_hosting_list" model="ir.ui.view">
+            <field name="name">dbm.hosting.list</field>
+            <field name="model">dbm.hosting</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="category_id"/>
+                    <field name="is_on_premise"/>
+                    <field name="protected"/>
+                    <field name="active"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- FORM -->
+        <record id="dbm_hosting_form" model="ir.ui.view">
+            <field name="name">dbm.hosting.form</field>
+            <field name="model">dbm.hosting</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="code"/>
+                            <field name="category_id"/>
+                        </group>
+                        <group>
+                            <field name="is_on_premise"/>
+                            <field name="protected"/>
+                            <field name="active"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- ACTION -->
+        <record id="action_dbm_hosting" model="ir.actions.act_window">
+            <field name="name">Hostings</field>
+            <field name="res_model">dbm.hosting</field>
+            <field name="view_mode">list,form</field>
+            <field name="search_view_id" ref="dbm_hosting_search"/>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- SEARCH -->
+        <record id="dbm_request_search" model="ir.ui.view">
+            <field name="name">dbm.request.search</field>
+            <field name="model">dbm.request</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="instance_id"/>
+                    <field name="user_id"/>
+
+                    <filter name="install"
+                            string="Installations"
+                            domain="[('request_type','=','install')]"/>
+
+                    <filter name="upgrade"
+                            string="Upgrades"
+                            domain="[('request_type','=','upgrade')]"/>
+                </search>
+            </field>
+        </record>
+
+        <!-- KANBAN -->
+        <record id="dbm_request_kanban" model="ir.ui.view">
+            <field name="name">dbm.request.kanban</field>
+            <field name="model">dbm.request</field>
+            <field name="arch" type="xml">
+                <kanban default_group_by="stage_id">
+                    <field name="stage_id"/>
+                    <field name="name"/>
+                    <field name="instance_id"/>
+                    <field name="user_id"/>
+                    <field name="request_type"/>
+                    <templates>
+                        <t t-name="card">
+                            <div class="oe_kanban_global_click">
+                                <strong><field name="name"/></strong>
+                                <div>
+                                    <field name="instance_id"/>
+                                </div>
+                                <div>
+                                    <field name="user_id"/>
+                                </div>
+                                <div>
+                                    <field name="request_type"/>
+                                </div>
+                            </div>
+                            <footer class="pt-0">
+                                <field name="request_type"/>
+                            </footer>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <!-- FORM -->
+        <record id="dbm_request_form" model="ir.ui.view">
+            <field name="name">dbm.request.form</field>
+            <field name="model">dbm.request</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="request_type"/>
+                            <field name="instance_id"/>
+                            <field name="user_id"/>
+                            <field name="version_id"/>
+                        </group>
+                        <field name="description"/>
+                    </sheet>
+                    <chatter/>
+                </form>
+            </field>
+        </record>
+
+        <!-- ACTION -->
+        <record id="action_dbm_request_all" model="ir.actions.act_window">
+            <field name="name">Requests</field>
+            <field name="res_model">dbm.request</field>
+            <field name="view_mode">kanban,form</field>
+            <field name="context">{'group_expand': True}</field>
+            <field name="search_view_id" ref="dbm_request_search"/>
+        </record>
+
+        <record id="action_dbm_request_install" model="ir.actions.act_window">
+            <field name="name">Installation Requests</field>
+            <field name="res_model">dbm.request</field>
+            <field name="view_mode">kanban,form</field>
+            <field name="domain">[('request_type','=','install')]</field>
+            <field name="context">{'group_expand': True}</field>
+            <field name="search_view_id" ref="dbm_request_search"/>
+        </record>
+        <record id="action_dbm_request_upgrade" model="ir.actions.act_window">
+            <field name="name">Upgrade Requests</field>
+            <field name="res_model">dbm.request</field>
+            <field name="view_mode">kanban,form</field>
+            <field name="domain">[('request_type','=','upgrade')]</field>
+            <field name="context">{'group_expand': True}</field>
+            <field name="search_view_id" ref="dbm_request_search"/>
+        </record>
+
+
+
+    </data>
+</odoo>

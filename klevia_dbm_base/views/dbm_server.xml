@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- SEARCH -->
+        <record id="dbm_server_search" model="ir.ui.view">
+            <field name="name">dbm.server.search</field>
+            <field name="model">dbm.server</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="category_id"/>
+                    <field name="hosting_id"/>
+                </search>
+            </field>
+        </record>
+
+        <!-- LIST -->
+        <record id="dbm_server_list" model="ir.ui.view">
+            <field name="name">dbm.server.list</field>
+            <field name="model">dbm.server</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="name"/>
+                    <field name="category_id"/>
+                    <field name="hosting_id"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- FORM -->
+        <record id="dbm_server_form" model="ir.ui.view">
+            <field name="name">dbm.server.form</field>
+            <field name="model">dbm.server</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="category_id"/>
+                            <field name="hosting_id"/>
+                        </group>
+                        <group string="Technical Notes">
+                            <field name="notes" nolabel="1"/>
+                        </group>
+                    </sheet>
+                    <chatter/>
+                </form>
+            </field>
+        </record>
+
+        <!-- ACTION -->
+        <record id="action_dbm_server" model="ir.actions.act_window">
+            <field name="name">Servers</field>
+            <field name="res_model">dbm.server</field>
+            <field name="view_mode">list,form</field>
+            <field name="search_view_id" ref="dbm_server_search"/>
+        </record>
+
+    </data>
+</odoo>

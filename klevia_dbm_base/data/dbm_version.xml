@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="dbm_version_18_0" model="dbm.version">
+            <field name="name">18.0</field>
+            <field name="protected" eval="True" />
+        </record>
+
+        <record id="dbm_version_19_0" model="dbm.version">
+            <field name="name">19.0</field>
+            <field name="protected" eval="True" />
+        </record>
+
+    </data>
+</odoo>
