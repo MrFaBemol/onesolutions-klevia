@@ -8,7 +8,7 @@
     'author': "OneSolutions SA - Gautier Casabona",
     'website': "https://www.onesolutions.io",
 
-    'depends': ['hr_timesheet'],
+    'depends': ['hr_timesheet', 'project'],
     "assets": {
         "web.assets_backend": [],
     },
