@@ -54,10 +54,10 @@
 
                     <field name="is_favorite" invisible="False" widget="boolean_favorite" nolabel="1" />
                     <field name="name" widget="url"/>
-                    <button class="oi oi-odoo" invisible="not odoo_sh_url" type="object" name="action_open_sh_project" />
-                    <button icon="fa-github" invisible="not github_url" type="object" name="action_open_github" />
-                    <button icon="fa-wrench" invisible="not to_install" class="decoration-info" />
-                    <button icon="fa-upload" invisible="not to_upgrade" class="decoration-info" />
+                    <button class="oi oi-odoo" invisible="not odoo_sh_url" type="object" name="action_open_sh_project" title="Odoo.SH" />
+                    <button icon="fa-github" invisible="not github_url" type="object" name="action_open_github" title="GitHub" />
+                    <button icon="fa-wrench" invisible="not to_install" class="decoration-info" title="To install" />
+                    <button icon="fa-upload" invisible="not to_upgrade" class="decoration-info" title="To upgrade" />
 
 
                     <field name="technical_name"/>
@@ -144,19 +144,21 @@
                                 <field name="subscription_code"/>
                                 <field name="license_type"/>
                                 <field name="responsible_id" widget="many2one_avatar_user" />
+                                <field name="company_id" />
+                                <field name="company_currency" invisible="1" />
                             </group>
                         </group>
 
                         <notebook>
 
-                            <page string="Technical" name="technical">
+                            <page string="Infos" name="infos">
                                 <group>
-                                    <group>
+                                    <group name="infos_base">
                                         <field name="technical_name"/>
                                         <field name="github_url" widget="url" />
                                         <field name="odoo_sh_url" widget="url" invisible="not is_odoo_sh"/>
                                     </group>
-                                    <group invisible="not is_on_premise" >
+                                    <group name="infos_on_premise" invisible="not is_on_premise">
                                         <field name="server_id"/>
                                         <field name="ssh_user"/>
                                         <field name="ssh_host"/>
@@ -169,7 +171,7 @@
                                     </group>
                                 </group>
 
-                                <separator />
+                                <separator string="Notes" />
                                 <field name="technical_notes" nolabel="1" colspan="2" placeholder="Write any technical informations here..."/>
                             </page>
 

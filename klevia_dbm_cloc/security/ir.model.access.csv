@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+dbm_cloc_pricing_rule_access,dbm_cloc_pricing_rule_access,model_dbm_cloc_pricing,klevia_dbm_base.group_dbm_user,1,0,0,0
+dbm_cloc_pricing_manager_rule_access,dbm_cloc_pricing_manager_rule_access,model_dbm_cloc_pricing,klevia_dbm_base.group_dbm_manager,1,1,1,1
+dbm_instance_cloc_rule_access,dbm_instance_cloc_rule_access,model_dbm_instance_cloc,klevia_dbm_base.group_dbm_user,1,1,1,1
+
+
+

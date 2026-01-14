@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="dbm_instance_form" model="ir.ui.view">
+        <field name="name">dbm_instance_form</field>
+        <field name="model">dbm.instance</field>
+        <field name="inherit_id" ref="klevia_dbm_base.dbm_instance_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="CLOC">
+                    <group>
+                        <group>
+                            <field name="cloc_total" />
+                            <field name="cloc_cost_estimated" readonly="1" options="{'currency_field': 'company_currency'}"/>
+                        </group>
+                        <group>
+                            <button name="action_sync_cloc"
+                                type="object"
+                                string="Synchronize CLOC"
+                                class="btn-primary"/>
+
+                            <button name="action_recompute_cloc_cost"
+                                type="object"
+                                string="Recompute Cost"
+                                class="btn-fill-secondary"/>
+                        </group>
+                    </group>
+
+
+                    <field name="cloc_line_ids">
+                        <list create="false" delete="false">
+                            <field name="include_in_cloc" widget="boolean_toggle"/>
+                            <field name="module_name"/>
+                            <field name="loc"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+
+
+        </field>
+    </record>
+
+</odoo>

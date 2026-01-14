@@ -5,7 +5,7 @@
         <!-- ROOT MENU -->
         <menuitem id="menu_dbm_root"
                   name="Database Manager"
-                  groups=""
+                  groups="klevia_dbm_base.group_dbm_user"
                   web_icon="klevia_dbm_base,static/description/icon.png"
                   sequence="10">
 
@@ -24,7 +24,7 @@
 
 
             <!-- CONFIG -->
-            <menuitem id="menu_dbm_config" name="Configuration" sequence="90">
+            <menuitem id="menu_dbm_config" name="Configuration" sequence="90" groups="klevia_dbm_base.group_dbm_manager">
                 <menuitem id="menu_dbm_categories" name="Categories" action="action_dbm_category" sequence="10"/>
                 <menuitem id="menu_dbm_hostings" name="Hostings" action="action_dbm_hosting" sequence="20"/>
                 <menuitem id="menu_dbm_servers" name="Servers" action="action_dbm_server"  sequence="30"/>

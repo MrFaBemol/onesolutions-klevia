@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- Extend instance form -->
+        <record id="dbm_instance_form_rpc" model="ir.ui.view">
+            <field name="name">dbm.instance.form.rpc</field>
+            <field name="model">dbm.instance</field>
+            <field name="inherit_id" ref="klevia_dbm_base.dbm_instance_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//group[@name='infos_base']" position="inside">
+                    <separator string="Sync" />
+                    <field name="api_dbname" />
+                    <field name="api_username" />
+                    <field name="api_password" password="True" />
+                    <field name="api_last_test_success" invisible="1" />
+                    <field name="api_last_test_date" readonly="1" invisible="not api_last_test_date" decoration-danger="not api_last_test_success" decoration-success="api_last_test_success" widget="badge" />
+
+
+                    <button name="action_test_api_connection"
+                            type="object"
+                            string="Test connection"
+                            class="btn-link" />
+
+                </xpath>
+
+
+
+                <xpath expr="//notebook//page[@name='infos']" position="before">
+                    <page string="Users" name="users">
+
+<!--                        <div class="alert alert-info">-->
+<!--                            Users synchronized from the remote database.-->
+<!--                        </div>-->
+
+                        <group class="mb-2">
+                            <button name="action_sync_users"
+                                    type="object"
+                                    class="btn-primary mr-2"
+                                    string="Synchronize users"/>
+
+                            <button name="action_create_users_in_crm"
+                                    type="object"
+                                    class="btn-secondary"
+                                    string="Create / Link Contacts"/>
+                        </group>
+
+                        <field name="remote_user_ids" readonly="1">
+                            <list decoration-muted="not active_on_db" decoration-success="partner_id">
+                                <field name="active_on_db" column_invisible="1"/>
+                                <field name="name"/>
+                                <field name="login" optional="hide"/>
+                                <field name="email"/>
+                                <field name="phone"/>
+                                <field name="partner_id" widget="many2one_avatar"/>
+                                <field name="remote_user_id"/>
+                            </list>
+                        </field>
+
+                    </page>
+                </xpath>
+
+
+
+
+            </field>
+        </record>
+
+    </data>
+</odoo>

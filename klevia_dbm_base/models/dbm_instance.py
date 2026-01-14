@@ -130,6 +130,9 @@ class DbmInstance(models.Model):
         ondelete="set null",
     )
 
+    company_id = fields.Many2one("res.company", string="Company", tracking=True, default=lambda self: self.env.company)
+    company_currency = fields.Many2one(related="company_id.currency_id")
+
     technical_notes = fields.Text(string="Technical Notes")
 
     # -------------------------
@@ -178,6 +181,8 @@ class DbmInstance(models.Model):
 
     @api.onchange('technical_name', 'hosting_id')
     def _onchange_technical_name(self):
+        if not self.technical_name:
+            return
         odoo_com_hosting = self.env.ref('klevia_dbm_base.dbm_hosting_odoo_com', raise_if_not_found=False)
         odoo_sh_hosting = self.env.ref('klevia_dbm_base.dbm_hosting_odoo_sh', raise_if_not_found=False)
         if odoo_com_hosting and self.hosting_id != odoo_com_hosting:

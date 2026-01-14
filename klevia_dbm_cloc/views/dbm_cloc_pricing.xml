@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- SEARCH -->
+        <record id="dbm_cloc_pricing_search" model="ir.ui.view">
+            <field name="name">dbm.cloc.pricing.search</field>
+            <field name="model">dbm.cloc.pricing</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="max_loc"/>
+                    <field name="price_per_loc"/>
+                </search>
+            </field>
+        </record>
+
+        <!-- LIST (editable) -->
+        <record id="dbm_cloc_pricing_list" model="ir.ui.view">
+            <field name="name">dbm.cloc.pricing.list</field>
+            <field name="model">dbm.cloc.pricing</field>
+            <field name="arch" type="xml">
+                <list editable="bottom">
+                    <field name="max_loc"/>
+                    <field name="price_per_loc"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- FORM (optional but useful) -->
+<!--        <record id="dbm_cloc_pricing_form" model="ir.ui.view">-->
+<!--            <field name="name">dbm.cloc.pricing.form</field>-->
+<!--            <field name="model">dbm.cloc.pricing</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <form>-->
+<!--                    <sheet>-->
+<!--                        <group>-->
+<!--                            <field name="max_loc"/>-->
+<!--                            <field name="price_per_loc"/>-->
+<!--                        </group>-->
+<!--                    </sheet>-->
+<!--                </form>-->
+<!--            </field>-->
+<!--        </record>-->
+
+        <!-- ACTION -->
+        <record id="action_dbm_cloc_pricing" model="ir.actions.act_window">
+            <field name="name">CLOC Pricing</field>
+            <field name="res_model">dbm.cloc.pricing</field>
+            <field name="view_mode">list</field>
+            <field name="search_view_id" ref="dbm_cloc_pricing_search"/>
+        </record>
+
+    </data>
+</odoo>
