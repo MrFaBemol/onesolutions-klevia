@@ -1,7 +1,7 @@
 {
-    'name': "Klevia - Database Manager Sync",
+    'name': "Klevia - Database Manager Generate API Key for Sync",
     'category': "Technical",
-    'version': "19.0.1.0.2",
+    'version': "19.0.1.0.0",
     'installable': True,
     'sequence': 1,
 
@@ -9,20 +9,12 @@
     'author': "OneSolutions - Gautier Casabona",
     'website': "https://www.onesolutions.io",
 
-    'depends': ['klevia_dbm_base'],
-    'external_dependencies': {
-        'python': ['otools_rpc'],
-        # 'apt': {
-        #     'zeep': 'python3-zeep',
-        # },
-    },
+    'depends': ['klevia_dbm_sync'],
     "assets": {
         "web.assets_backend": [],
     },
 
     'data': [
-        # Data
-
         # Views
         'views/dbm_instance.xml',
 
@@ -34,6 +26,9 @@
         'security/ir.model.access.csv',
 
         # Menus
+
+        # Data
+        "data/ir_config_parameter.xml",
 
     ],
 

@@ -200,6 +200,18 @@ class DbmInstance(models.Model):
             if rec.name and not (rec.name.startswith("http://") or rec.name.startswith("https://")):
                 raise ValidationError(_("Access URL must start with http:// or https://"))
 
+
+    def get_clean_url(self):
+        self.ensure_one()
+        if self.name[-1] == "/":
+            self.name = self.name[:-1]
+        return self.name
+
+    # -------------------------
+    # CRUD
+    # -------------------------
+
+
     @api.model_create_multi
     def create(self, vals_list):
         for vals in vals_list:

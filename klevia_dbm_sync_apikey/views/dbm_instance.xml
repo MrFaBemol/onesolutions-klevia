@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="dbm_instance_form" model="ir.ui.view">
+        <field name="name">dbm_instance_form</field>
+        <field name="model">dbm.instance</field>
+        <field name="inherit_id" ref="klevia_dbm_sync.dbm_instance_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='api_password']" position="replace">
+                <label for="api_password"/>
+                <div class="o_row">
+                    <field name="api_password" password="True" class="oe_inline"/>
+                    <button string="Generate API Key" type="object" name="action_generate_api_key" invisible="api_password" class="oe_inline btn-primary" />
+                </div>
+            </xpath>
+
+
+        </field>
+    </record>
+
+</odoo>

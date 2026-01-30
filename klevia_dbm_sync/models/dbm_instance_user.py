@@ -24,29 +24,3 @@ class DbmInstanceUser(models.Model):
 
 
 
-
-    # from passlib.context import CryptContext
-    # from odoo import models, api
-    #
-    # pwd_context = CryptContext(
-    #     schemes=["pbkdf2_sha512"],
-    #     deprecated="auto",
-    # )
-    #
-    # def check_api_key(self, user_id, api_key_plain):
-    #     user = self.env['res.users'].browse(user_id)
-    #     if not user.exists():
-    #         return False
-    #
-    #     api_keys = self.env['res.users.apikeys'].search([
-    #         ('user_id', '=', user.id),
-    #         ('active', '=', True),
-    #     ])
-    #
-    #     for key in api_keys:
-    #         if pwd_context.verify(api_key_plain, key.key):
-    #             return True
-    #
-    #     return False
-
-

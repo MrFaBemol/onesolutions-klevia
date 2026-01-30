@@ -3,7 +3,7 @@
     <data>
 
         <!-- Extend instance form -->
-        <record id="dbm_instance_form_rpc" model="ir.ui.view">
+        <record id="dbm_instance_form" model="ir.ui.view">
             <field name="name">dbm.instance.form.rpc</field>
             <field name="model">dbm.instance</field>
             <field name="inherit_id" ref="klevia_dbm_base.dbm_instance_form"/>
