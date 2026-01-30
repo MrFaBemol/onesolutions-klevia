@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="dbm_instance_user_list" model="ir.ui.view">
+        <field name="name">dbm_instance_user_list</field>
+        <field name="model">dbm.instance.user</field>
+        <field name="inherit_id" ref="klevia_dbm_sync.dbm_instance_user_list" />
+        <field name="arch" type="xml">
+            <xpath expr="//list" position="inside">
+                <button type="object" name="action_connect_as" string="Connect as" class="btn-outline-primary" />
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

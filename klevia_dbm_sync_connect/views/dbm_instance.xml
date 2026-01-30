@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+
+    <record id="dbm_instance_list" model="ir.ui.view">
+        <field name="name">dbm_instance_list</field>
+        <field name="model">dbm.instance</field>
+        <field name="inherit_id" ref="klevia_dbm_base.dbm_instance_list" />
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_open_sh_project']" position="before">
+                <field name="remote_user_ids" column_invisible="1" />
+                <button icon="fa-users" invisible="not remote_user_ids" type="object" name="action_open_connect_as" title="Connect" />
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

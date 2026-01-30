@@ -1,7 +1,7 @@
 {
     'name': "Klevia - Database Manager Sync",
     'category': "Technical",
-    'version': "19.0.1.0.2",
+    'version': "19.0.1.0.3",
     'installable': True,
     'sequence': 1,
 
@@ -22,9 +22,11 @@
 
     'data': [
         # Data
+        'data/ir_config_parameter.xml',
 
         # Views
         'views/dbm_instance.xml',
+        'views/dbm_instance_user.xml',
 
         # Reports
 

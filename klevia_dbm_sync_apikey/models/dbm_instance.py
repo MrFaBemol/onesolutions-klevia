@@ -24,9 +24,9 @@ class DbmInstance(models.Model):
     def _generate_api_key(self):
         endpoint_url = f"{self.get_clean_url()}/onesolutions/api/key"
         login = self.api_username
-        secret = self.env['ir.config_parameter'].sudo().get_param('klevia_dbm_sync_apikey.secret')
+        secret = self.env['ir.config_parameter'].sudo().get_param('klevia_dbm_sync.secret')
         if not secret:
-            raise UserError(_("Please set a secret in the system parameters (klevia_dbm_sync_apikey.secret)"))
+            raise UserError(_("Please set a secret in the system parameters (klevia_dbm_sync.secret)"))
         payload = {
             "login": login,
             "secret": secret,

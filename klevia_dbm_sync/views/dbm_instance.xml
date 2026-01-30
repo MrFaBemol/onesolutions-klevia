@@ -29,11 +29,6 @@
 
                 <xpath expr="//notebook//page[@name='infos']" position="before">
                     <page string="Users" name="users">
-
-<!--                        <div class="alert alert-info">-->
-<!--                            Users synchronized from the remote database.-->
-<!--                        </div>-->
-
                         <group class="mb-2">
                             <button name="action_sync_users"
                                     type="object"
@@ -46,17 +41,7 @@
                                     string="Create / Link Contacts"/>
                         </group>
 
-                        <field name="remote_user_ids" readonly="1">
-                            <list decoration-muted="not active_on_db" decoration-success="partner_id">
-                                <field name="active_on_db" column_invisible="1"/>
-                                <field name="name"/>
-                                <field name="login" optional="hide"/>
-                                <field name="email"/>
-                                <field name="phone"/>
-                                <field name="partner_id" widget="many2one_avatar"/>
-                                <field name="remote_user_id"/>
-                            </list>
-                        </field>
+                        <field name="remote_user_ids" readonly="1" />
 
                     </page>
                 </xpath>

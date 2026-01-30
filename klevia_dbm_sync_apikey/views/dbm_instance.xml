@@ -13,8 +13,6 @@
                     <button string="Generate API Key" type="object" name="action_generate_api_key" invisible="api_password" class="oe_inline btn-primary" />
                 </div>
             </xpath>
-
-
         </field>
     </record>
 

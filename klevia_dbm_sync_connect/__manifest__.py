@@ -1,7 +1,7 @@
 {
-    'name': "Klevia - Database Manager Generate API Key for Sync",
+    'name': "Klevia - Database Manager Sync Connect As",
     'category': "Technical",
-    'version': "19.0.1.0.1",
+    'version': "19.0.1.0.0",
     'installable': True,
     'sequence': 1,
 
@@ -17,6 +17,7 @@
     'data': [
         # Views
         'views/dbm_instance.xml',
+        'views/dbm_instance_user.xml',
 
         # Reports
 
@@ -26,8 +27,6 @@
         'security/ir.model.access.csv',
 
         # Menus
-
-        # Data
 
     ],
 

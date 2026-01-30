@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="dbm_instance_user_list" model="ir.ui.view">
+        <field name="name">dbm.instance.user.list</field>
+        <field name="model">dbm.instance.user</field>
+        <field name="arch" type="xml">
+            <list decoration-muted="not active_on_db" decoration-success="partner_id">
+                <field name="active_on_db" column_invisible="1"/>
+                <field name="name"/>
+                <field name="login" optional="hide"/>
+                <field name="email"/>
+                <field name="phone"/>
+                <field name="partner_id" widget="many2one_avatar"/>
+                <field name="remote_user_id"/>
+            </list>
+        </field>
+    </record>
+
+</odoo>
