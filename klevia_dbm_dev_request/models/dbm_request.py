@@ -1,7 +1,14 @@
 from odoo import models, fields, api, _
 from math import ceil
 
-
+TYPE_LABELS = {
+    "model": _("Data Model"),
+    "logic": _("Business Logic"),
+    "view": _("Views"),
+    "security": _("Security"),
+    "report": _("Reports"),
+    "owl": _("OWL / JS"),
+}
 
 class DbmRequest(models.Model):
     _inherit = "dbm.request"
@@ -124,15 +131,6 @@ class DbmRequest(models.Model):
         "line_ids.time_estimated",
     )
     def _compute_estimation_report(self):
-        TYPE_LABELS = {
-            "model": _("Data Model"),
-            "logic": _("Business Logic"),
-            "view": _("Views"),
-            "security": _("Security"),
-            "report": _("Reports"),
-            "owl": _("OWL / JS"),
-        }
-
         for rec in self:
             lines_by_type = {}
             for line in rec.line_ids:
