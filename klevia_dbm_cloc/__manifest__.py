@@ -1,7 +1,7 @@
 {
-    'name': "OneSolutions - Database Manager CLOC",
+    'name': "Klevia - Database Manager CLOC",
     'category': "Technical",
-    'version': "19.0.1.0.2",
+    'version': "19.0.1.0.3",
     'installable': True,
     'sequence': 1,
 
