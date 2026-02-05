@@ -1,7 +1,7 @@
 {
     'name': "Klevia - Database Manager Sync",
     'category': "Technical",
-    'version': "19.0.1.0.3",
+    'version': "19.0.1.0.4",
     'installable': True,
     'sequence': 1,
 

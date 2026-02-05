@@ -1,0 +1,273 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* klevia_dbm_dev_request
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-05 22:59+0000\n"
+"PO-Revision-Date: 2026-02-05 22:59+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: klevia_dbm_dev_request
+#. odoo-python
+#: code:addons/klevia_dbm_dev_request/models/dbm_request.py:0
+#: model:ir.model.fields.selection,name:klevia_dbm_dev_request.selection__dbm_request_line__line_type__logic
+#: model_terms:ir.ui.view,arch_db:klevia_dbm_dev_request.dbm_request_form_dev_inherit
+msgid "Business Logic"
+msgstr "Logique métier"
+
+#. module: klevia_dbm_dev_request
+#: model:ir.model.fields,help:klevia_dbm_dev_request.field_dbm_request__reliability
+msgid "Confidence factor (e.g. 0.9 = ±10%)"
+msgstr "Facteur de confiance (ex. 0,9 = ±10 %)"
+
+#. module: klevia_dbm_dev_request
+#: model:ir.model,name:klevia_dbm_dev_request.model_dbm_request_wizard
+msgid "Create Request Wizard"
+msgstr "Assistant de création de demande"
+
+#. module: klevia_dbm_dev_request
+#: model:ir.model.fields,field_description:klevia_dbm_dev_request.field_dbm_request_line__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: klevia_dbm_dev_request
+#: model:ir.model.fields,field_description:klevia_dbm_dev_request.field_dbm_request_line__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: klevia_dbm_dev_request
+#: model:ir.model,name:klevia_dbm_dev_request.model_dbm_request_line
+msgid "DBM Development Estimation Line"
+msgstr "Ligne d’estimation de développement DBM"
+
+#. module: klevia_dbm_dev_request
+#. odoo-python
+#: code:addons/klevia_dbm_dev_request/models/dbm_request.py:0
+#: model:ir.model.fields.selection,name:klevia_dbm_dev_request.selection__dbm_request_line__line_type__model
+#: model_terms:ir.ui.view,arch_db:klevia_dbm_dev_request.dbm_request_form_dev_inherit
+msgid "Data Model"
+msgstr "Modèle de données"
+
+#. module: klevia_dbm_dev_request
+#: model:ir.model.fields,field_description:klevia_dbm_dev_request.field_dbm_request_line__description
+msgid "Description"
+msgstr "Description"
+
+#. module: klevia_dbm_dev_request
+#: model:ir.actions.act_window,name:klevia_dbm_dev_request.action_dbm_request_dev
+msgid "Dev Requests"
+msgstr "Demandes de développement"
+
+#. module: klevia_dbm_dev_request
+#: model:ir.model.fields.selection,name:klevia_dbm_dev_request.selection__dbm_request__request_type__dev
+#: model:ir.model.fields.selection,name:klevia_dbm_dev_request.selection__dbm_request_wizard__request_type__dev
+msgid "Development"
+msgstr "Développement"
+
+#. module: klevia_dbm_dev_request
+#: model:ir.model.fields,field_description:klevia_dbm_dev_request.field_dbm_request__line_ids
+msgid "Development Lines"
+msgstr "Lignes de développement"
+
+#. module: klevia_dbm_dev_request
+#: model:ir.ui.menu,name:klevia_dbm_dev_request.menu_dbm_requests_dev
+msgid "Developments"
+msgstr "Développements"
+
+#. module: klevia_dbm_dev_request
+#: model:ir.model.fields,field_description:klevia_dbm_dev_request.field_dbm_request__display_name
+#: model:ir.model.fields,field_description:klevia_dbm_dev_request.field_dbm_request_line__display_name
+#: model:ir.model.fields,field_description:klevia_dbm_dev_request.field_dbm_request_wizard__display_name
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: klevia_dbm_dev_request
+#: model:ir.model.fields,field_description:klevia_dbm_dev_request.field_dbm_request__time_max
+msgid "Estimated Max Time"
+msgstr "Temps estimé maximal"
+
+#. module: klevia_dbm_dev_request
+#: model:ir.model.fields,field_description:klevia_dbm_dev_request.field_dbm_request__time_min
+msgid "Estimated Min Time"
+msgstr "Temps estimé minimal"
+
+#. module: klevia_dbm_dev_request
+#: model:ir.model.fields,field_description:klevia_dbm_dev_request.field_dbm_request_line__time_estimated
+msgid "Estimated Time (h)"
+msgstr "Temps estimé (h)"
+
+#. module: klevia_dbm_dev_request
+#: model:ir.model.fields,field_description:klevia_dbm_dev_request.field_dbm_request__estimation_report_html
+#: model_terms:ir.ui.view,arch_db:klevia_dbm_dev_request.dbm_request_form_dev_inherit
+msgid "Estimation Summary"
+msgstr "Synthèse de l’estimation"
+
+#. module: klevia_dbm_dev_request
+#: model_terms:ir.ui.view,arch_db:klevia_dbm_dev_request.dbm_request_form_dev_inherit
+msgid "Explain your request here..."
+msgstr "Expliquez votre demande ici…"
+
+#. module: klevia_dbm_dev_request
+#: model:ir.model.fields,field_description:klevia_dbm_dev_request.field_dbm_request__id
+#: model:ir.model.fields,field_description:klevia_dbm_dev_request.field_dbm_request_line__id
+#: model:ir.model.fields,field_description:klevia_dbm_dev_request.field_dbm_request_wizard__id
+msgid "ID"
+msgstr "ID"
+
+#. module: klevia_dbm_dev_request
+#: model:ir.model.fields,field_description:klevia_dbm_dev_request.field_dbm_request_line__write_uid
+msgid "Last Updated by"
+msgstr "Dernière modification par"
+
+#. module: klevia_dbm_dev_request
+#: model:ir.model.fields,field_description:klevia_dbm_dev_request.field_dbm_request_line__write_date
+msgid "Last Updated on"
+msgstr "Dernière modification le"
+
+#. module: klevia_dbm_dev_request
+#: model:ir.model.fields,field_description:klevia_dbm_dev_request.field_dbm_request_line__line_type
+msgid "Line Type"
+msgstr "Type de ligne"
+
+#. module: klevia_dbm_dev_request
+#: model:ir.model.fields,field_description:klevia_dbm_dev_request.field_dbm_request__logic_line_ids
+msgid "Logic Line"
+msgstr "Ligne de logique métier"
+
+#. module: klevia_dbm_dev_request
+#: model:ir.model.fields,field_description:klevia_dbm_dev_request.field_dbm_request__maintenance_loc_max
+msgid "Max LoC Maintenance"
+msgstr "Maintenance LoC maximale"
+
+#. module: klevia_dbm_dev_request
+#: model:ir.model.fields,field_description:klevia_dbm_dev_request.field_dbm_request__maintenance_loc_min
+msgid "Min LoC Maintenance"
+msgstr "Maintenance LoC minimale"
+
+#. module: klevia_dbm_dev_request
+#: model:ir.model.fields,field_description:klevia_dbm_dev_request.field_dbm_request__model_line_ids
+msgid "Model Line"
+msgstr "Ligne de modèle"
+
+#. module: klevia_dbm_dev_request
+#. odoo-python
+#: code:addons/klevia_dbm_dev_request/models/dbm_request.py:0
+#: model:ir.model.fields.selection,name:klevia_dbm_dev_request.selection__dbm_request_line__line_type__owl
+#: model_terms:ir.ui.view,arch_db:klevia_dbm_dev_request.dbm_request_form_dev_inherit
+msgid "OWL / JS"
+msgstr "OWL / JS"
+
+#. module: klevia_dbm_dev_request
+#: model:ir.model.fields,field_description:klevia_dbm_dev_request.field_dbm_request__owl_line_ids
+msgid "Owl Line"
+msgstr "Ligne OWL"
+
+#. module: klevia_dbm_dev_request
+#: model:ir.model.fields,field_description:klevia_dbm_dev_request.field_dbm_request__reliability
+msgid "Reliability"
+msgstr "Fiabilité"
+
+#. module: klevia_dbm_dev_request
+#: model:ir.model.fields,field_description:klevia_dbm_dev_request.field_dbm_request__report_line_ids
+msgid "Report Line"
+msgstr "Ligne de rapport"
+
+#. module: klevia_dbm_dev_request
+#. odoo-python
+#: code:addons/klevia_dbm_dev_request/models/dbm_request.py:0
+#: model:ir.model.fields.selection,name:klevia_dbm_dev_request.selection__dbm_request_line__line_type__report
+#: model_terms:ir.ui.view,arch_db:klevia_dbm_dev_request.dbm_request_form_dev_inherit
+msgid "Reports"
+msgstr "Rapports"
+
+#. module: klevia_dbm_dev_request
+#: model:ir.model,name:klevia_dbm_dev_request.model_dbm_request
+#: model:ir.model.fields,field_description:klevia_dbm_dev_request.field_dbm_request_line__request_id
+msgid "Request"
+msgstr "Demande"
+
+#. module: klevia_dbm_dev_request
+#: model:ir.model.fields,field_description:klevia_dbm_dev_request.field_dbm_request__request_type
+#: model:ir.model.fields,field_description:klevia_dbm_dev_request.field_dbm_request_wizard__request_type
+msgid "Request Type"
+msgstr "Type de demande"
+
+#. module: klevia_dbm_dev_request
+#. odoo-python
+#: code:addons/klevia_dbm_dev_request/models/dbm_request.py:0
+#: model:ir.model.fields.selection,name:klevia_dbm_dev_request.selection__dbm_request_line__line_type__security
+#: model_terms:ir.ui.view,arch_db:klevia_dbm_dev_request.dbm_request_form_dev_inherit
+msgid "Security"
+msgstr "Sécurité"
+
+#. module: klevia_dbm_dev_request
+#: model:ir.model.fields,field_description:klevia_dbm_dev_request.field_dbm_request__security_line_ids
+msgid "Security Line"
+msgstr "Ligne de sécurité"
+
+#. module: klevia_dbm_dev_request
+#: model_terms:ir.ui.view,arch_db:klevia_dbm_dev_request.dbm_request_form_dev_inherit
+msgid "Specification"
+msgstr "Spécification"
+
+#. module: klevia_dbm_dev_request
+#: model_terms:ir.ui.view,arch_db:klevia_dbm_dev_request.dbm_request_form_dev_inherit
+msgid "Summary"
+msgstr "Résumé"
+
+#. module: klevia_dbm_dev_request
+#: model:ir.model.fields,field_description:klevia_dbm_dev_request.field_dbm_request__time_logic
+msgid "Time Logic"
+msgstr "Temps logique métier"
+
+#. module: klevia_dbm_dev_request
+#: model:ir.model.fields,field_description:klevia_dbm_dev_request.field_dbm_request__time_model
+msgid "Time Model"
+msgstr "Temps modèle de données"
+
+#. module: klevia_dbm_dev_request
+#: model:ir.model.fields,field_description:klevia_dbm_dev_request.field_dbm_request__time_owl
+msgid "Time Owl"
+msgstr "Temps OWL"
+
+#. module: klevia_dbm_dev_request
+#: model:ir.model.fields,field_description:klevia_dbm_dev_request.field_dbm_request__time_report
+msgid "Time Report"
+msgstr "Temps rapports"
+
+#. module: klevia_dbm_dev_request
+#: model:ir.model.fields,field_description:klevia_dbm_dev_request.field_dbm_request__time_security
+msgid "Time Security"
+msgstr "Temps sécurité"
+
+#. module: klevia_dbm_dev_request
+#: model:ir.model.fields,field_description:klevia_dbm_dev_request.field_dbm_request__time_view
+msgid "Time View"
+msgstr "Temps vues"
+
+#. module: klevia_dbm_dev_request
+#: model:ir.model.fields,field_description:klevia_dbm_dev_request.field_dbm_request__time_total
+msgid "Total Estimated Time"
+msgstr "Temps total estimé"
+
+#. module: klevia_dbm_dev_request
+#: model:ir.model.fields,field_description:klevia_dbm_dev_request.field_dbm_request__view_line_ids
+msgid "View Line"
+msgstr "Ligne de vue"
+
+#. module: klevia_dbm_dev_request
+#. odoo-python
+#: code:addons/klevia_dbm_dev_request/models/dbm_request.py:0
+#: model:ir.model.fields.selection,name:klevia_dbm_dev_request.selection__dbm_request_line__line_type__view
+#: model_terms:ir.ui.view,arch_db:klevia_dbm_dev_request.dbm_request_form_dev_inherit
+msgid "Views"
+msgstr "Vues"

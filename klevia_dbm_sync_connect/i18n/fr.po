@@ -1,0 +1,103 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* klevia_dbm_sync_connect
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-05 23:00+0000\n"
+"PO-Revision-Date: 2026-02-05 23:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: klevia_dbm_sync_connect
+#: model_terms:ir.ui.view,arch_db:klevia_dbm_sync_connect.dbm_instance_list
+msgid "Connect"
+msgstr "Se connecter"
+
+#. module: klevia_dbm_sync_connect
+#. odoo-python
+#: code:addons/klevia_dbm_sync_connect/models/dbm_instance.py:0
+msgid "Connect As"
+msgstr "Se connecter en tant que"
+
+#. module: klevia_dbm_sync_connect
+#: model_terms:ir.ui.view,arch_db:klevia_dbm_sync_connect.dbm_instance_user_list
+msgid "Connect as"
+msgstr "Se connecter en tant que"
+
+#. module: klevia_dbm_sync_connect
+#: model:ir.model,name:klevia_dbm_sync_connect.model_dbm_instance_user
+msgid "DBM Instance User"
+msgstr "Utilisateur d’instance DBM"
+
+#. module: klevia_dbm_sync_connect
+#: model:ir.model.fields,field_description:klevia_dbm_sync_connect.field_dbm_instance__display_name
+#: model:ir.model.fields,field_description:klevia_dbm_sync_connect.field_dbm_instance_user__display_name
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: klevia_dbm_sync_connect
+#. odoo-python
+#: code:addons/klevia_dbm_sync_connect/models/dbm_instance_user.py:0
+msgid ""
+"Failed to call the endpoint, please check that the os_sync_connect module is installed on the database\n"
+"\n"
+"%s"
+msgstr ""
+"Échec de l’appel au point de terminaison, veuillez vérifier que le module os_sync_connect est installé sur la base de données\n"
+"\n"
+"%s"
+
+#. module: klevia_dbm_sync_connect
+#: model:ir.model.fields,field_description:klevia_dbm_sync_connect.field_dbm_instance__id
+#: model:ir.model.fields,field_description:klevia_dbm_sync_connect.field_dbm_instance_user__id
+msgid "ID"
+msgstr "ID"
+
+#. module: klevia_dbm_sync_connect
+#: model:ir.model,name:klevia_dbm_sync_connect.model_dbm_instance
+msgid "Instance"
+msgstr "Instance"
+
+#. module: klevia_dbm_sync_connect
+#. odoo-python
+#: code:addons/klevia_dbm_sync_connect/models/dbm_instance_user.py:0
+msgid "Invalid JSON response: %s"
+msgstr "Réponse JSON invalide : %s"
+
+#. module: klevia_dbm_sync_connect
+#. odoo-python
+#: code:addons/klevia_dbm_sync_connect/models/dbm_instance_user.py:0
+msgid ""
+"Invalid response, status code : %s \n"
+"\n"
+"Please check that the os_sync_connect module is installed on the database"
+msgstr ""
+"Réponse invalide, code de statut : %s\n"
+"\n"
+"Veuillez vérifier que le module os_sync_connect est installé sur la base de données"
+
+#. module: klevia_dbm_sync_connect
+#. odoo-python
+#: code:addons/klevia_dbm_sync_connect/models/dbm_instance_user.py:0
+msgid "No access token returned"
+msgstr "Aucun jeton d’accès retourné"
+
+#. module: klevia_dbm_sync_connect
+#. odoo-python
+#: code:addons/klevia_dbm_sync_connect/models/dbm_instance_user.py:0
+msgid "Please set a secret in the system parameters (klevia_dbm_sync.secret)"
+msgstr "Veuillez définir un secret dans les paramètres système (klevia_dbm_sync.secret)"
+
+#. module: klevia_dbm_sync_connect
+#. odoo-python
+#: code:addons/klevia_dbm_sync_connect/models/dbm_instance.py:0
+msgid "instance_id"
+msgstr "instance_id"

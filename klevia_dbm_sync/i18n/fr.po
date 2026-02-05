@@ -1,0 +1,248 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* klevia_dbm_sync
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-05 23:00+0000\n"
+"PO-Revision-Date: 2026-02-05 23:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: klevia_dbm_sync
+#. odoo-python
+#: code:addons/klevia_dbm_sync/models/dbm_instance.py:0
+msgid "%s active users, %s deactivated."
+msgstr "%s utilisateurs actifs, %s désactivés."
+
+#. module: klevia_dbm_sync
+#. odoo-python
+#: code:addons/klevia_dbm_sync/models/dbm_instance.py:0
+msgid "%s contacts created, %s linked."
+msgstr "%s contacts créés, %s liés."
+
+#. module: klevia_dbm_sync
+#: model:ir.model.fields,field_description:klevia_dbm_sync.field_dbm_instance_user__active_on_db
+msgid "Active On Db"
+msgstr "Actif sur la base de données"
+
+#. module: klevia_dbm_sync
+#. odoo-python
+#: code:addons/klevia_dbm_sync/models/dbm_instance.py:0
+msgid "CRM synchronization completed"
+msgstr "Synchronisation du CRM terminée"
+
+#. module: klevia_dbm_sync
+#. odoo-python
+#: code:addons/klevia_dbm_sync/models/dbm_instance.py:0
+msgid "Connection failed"
+msgstr "Échec de la connexion"
+
+#. module: klevia_dbm_sync
+#. odoo-python
+#: code:addons/klevia_dbm_sync/models/dbm_instance.py:0
+msgid "Connection successful"
+msgstr "Connexion réussie"
+
+#. module: klevia_dbm_sync
+#: model:ir.model,name:klevia_dbm_sync.model_res_partner
+msgid "Contact"
+msgstr "Contact"
+
+#. module: klevia_dbm_sync
+#. odoo-python
+#: code:addons/klevia_dbm_sync/models/dbm_instance.py:0
+msgid "Couldn't get an environment, please check credentials and logs."
+msgstr "Impossible d’obtenir un environnement, veuillez vérifier les identifiants et les journaux."
+
+#. module: klevia_dbm_sync
+#: model_terms:ir.ui.view,arch_db:klevia_dbm_sync.dbm_instance_form
+msgid "Create / Link Contacts"
+msgstr "Créer / lier des contacts"
+
+#. module: klevia_dbm_sync
+#: model:ir.model.fields,field_description:klevia_dbm_sync.field_dbm_instance_user__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: klevia_dbm_sync
+#: model:ir.model.fields,field_description:klevia_dbm_sync.field_dbm_instance_user__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: klevia_dbm_sync
+#: model:ir.model,name:klevia_dbm_sync.model_dbm_instance_user
+msgid "DBM Instance User"
+msgstr "Utilisateur d’instance DBM"
+
+#. module: klevia_dbm_sync
+#. odoo-python
+#: code:addons/klevia_dbm_sync/models/dbm_instance.py:0
+#: model:ir.model.fields,field_description:klevia_dbm_sync.field_dbm_instance__api_dbname
+msgid "Database Name"
+msgstr "Nom de la base de données"
+
+#. module: klevia_dbm_sync
+#: model:ir.model.fields,field_description:klevia_dbm_sync.field_res_partner__dbm_instance_ids
+#: model:ir.model.fields,field_description:klevia_dbm_sync.field_res_users__dbm_instance_ids
+msgid "Dbm Instance"
+msgstr "Instance DBM"
+
+#. module: klevia_dbm_sync
+#: model:ir.model.fields,field_description:klevia_dbm_sync.field_res_partner__dbm_instance_user_ids
+#: model:ir.model.fields,field_description:klevia_dbm_sync.field_res_users__dbm_instance_user_ids
+msgid "Dbm Instance User"
+msgstr "Utilisateur d’instance DBM"
+
+#. module: klevia_dbm_sync
+#: model:ir.model.fields,field_description:klevia_dbm_sync.field_dbm_instance__display_name
+#: model:ir.model.fields,field_description:klevia_dbm_sync.field_dbm_instance_user__display_name
+#: model:ir.model.fields,field_description:klevia_dbm_sync.field_res_partner__display_name
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: klevia_dbm_sync
+#: model:ir.model.fields,field_description:klevia_dbm_sync.field_dbm_instance_user__email
+msgid "Email"
+msgstr "E-mail"
+
+#. module: klevia_dbm_sync
+#. odoo-python
+#: code:addons/klevia_dbm_sync/models/dbm_instance.py:0
+msgid "Failed to fetch users: %s"
+msgstr "Impossible de récupérer les utilisateurs : %s"
+
+#. module: klevia_dbm_sync
+#: model:ir.model.fields,field_description:klevia_dbm_sync.field_dbm_instance__id
+#: model:ir.model.fields,field_description:klevia_dbm_sync.field_dbm_instance_user__id
+#: model:ir.model.fields,field_description:klevia_dbm_sync.field_res_partner__id
+msgid "ID"
+msgstr "ID"
+
+#. module: klevia_dbm_sync
+#: model:ir.model,name:klevia_dbm_sync.model_dbm_instance
+#: model:ir.model.fields,field_description:klevia_dbm_sync.field_dbm_instance_user__instance_id
+msgid "Instance"
+msgstr "Instance"
+
+#. module: klevia_dbm_sync
+#: model:ir.model.fields,field_description:klevia_dbm_sync.field_dbm_instance__api_last_test_success
+msgid "Last Connection OK"
+msgstr "Dernière connexion réussie"
+
+#. module: klevia_dbm_sync
+#: model:ir.model.fields,field_description:klevia_dbm_sync.field_dbm_instance__api_last_test_date
+msgid "Last Connection Test"
+msgstr "Dernier test de connexion"
+
+#. module: klevia_dbm_sync
+#: model:ir.model.fields,field_description:klevia_dbm_sync.field_dbm_instance_user__write_uid
+msgid "Last Updated by"
+msgstr "Dernière modification par"
+
+#. module: klevia_dbm_sync
+#: model:ir.model.fields,field_description:klevia_dbm_sync.field_dbm_instance_user__write_date
+msgid "Last Updated on"
+msgstr "Dernière modification le"
+
+#. module: klevia_dbm_sync
+#: model:ir.model.fields,field_description:klevia_dbm_sync.field_dbm_instance_user__login
+msgid "Login"
+msgstr "Identifiant"
+
+#. module: klevia_dbm_sync
+#. odoo-python
+#: code:addons/klevia_dbm_sync/models/dbm_instance.py:0
+msgid ""
+"Missing RPC configuration:\n"
+"- %s"
+msgstr ""
+"Configuration RPC manquante :\n"
+"- %s"
+
+#. module: klevia_dbm_sync
+#: model:ir.model.fields,field_description:klevia_dbm_sync.field_dbm_instance_user__name
+msgid "Name"
+msgstr "Nom"
+
+#. module: klevia_dbm_sync
+#: model:ir.model.fields,field_description:klevia_dbm_sync.field_dbm_instance_user__partner_id
+msgid "Partner"
+msgstr "Partenaire"
+
+#. module: klevia_dbm_sync
+#. odoo-python
+#: code:addons/klevia_dbm_sync/models/dbm_instance.py:0
+msgid "Password"
+msgstr "Mot de passe"
+
+#. module: klevia_dbm_sync
+#: model:ir.model.fields,field_description:klevia_dbm_sync.field_dbm_instance_user__phone
+msgid "Phone"
+msgstr "Téléphone"
+
+#. module: klevia_dbm_sync
+#: model:ir.model.fields,field_description:klevia_dbm_sync.field_dbm_instance__api_password
+msgid "RPC Password"
+msgstr "Mot de passe RPC"
+
+#. module: klevia_dbm_sync
+#. odoo-python
+#: code:addons/klevia_dbm_sync/models/dbm_instance.py:0
+msgid "RPC URL"
+msgstr "URL RPC"
+
+#. module: klevia_dbm_sync
+#: model:ir.model.fields,field_description:klevia_dbm_sync.field_dbm_instance__api_username
+msgid "RPC Username"
+msgstr "Nom d’utilisateur RPC"
+
+#. module: klevia_dbm_sync
+#: model:ir.model.fields,field_description:klevia_dbm_sync.field_dbm_instance_user__remote_user_id
+msgid "Remote User"
+msgstr "Utilisateur distant"
+
+#. module: klevia_dbm_sync
+#: model_terms:ir.ui.view,arch_db:klevia_dbm_sync.dbm_instance_form
+msgid "Sync"
+msgstr "Synchroniser"
+
+#. module: klevia_dbm_sync
+#: model_terms:ir.ui.view,arch_db:klevia_dbm_sync.dbm_instance_form
+msgid "Synchronize users"
+msgstr "Synchroniser les utilisateurs"
+
+#. module: klevia_dbm_sync
+#: model_terms:ir.ui.view,arch_db:klevia_dbm_sync.dbm_instance_form
+msgid "Test connection"
+msgstr "Tester la connexion"
+
+#. module: klevia_dbm_sync
+#: model:ir.model.constraint,message:klevia_dbm_sync.constraint_dbm_instance_user_dbm_instance_user_uniq
+msgid "This user already exists for this instance."
+msgstr "Cet utilisateur existe déjà pour cette instance."
+
+#. module: klevia_dbm_sync
+#. odoo-python
+#: code:addons/klevia_dbm_sync/models/dbm_instance.py:0
+msgid "Username"
+msgstr "Nom d’utilisateur"
+
+#. module: klevia_dbm_sync
+#: model:ir.model.fields,field_description:klevia_dbm_sync.field_dbm_instance__remote_user_ids
+#: model_terms:ir.ui.view,arch_db:klevia_dbm_sync.dbm_instance_form
+msgid "Users"
+msgstr "Utilisateurs"
+
+#. module: klevia_dbm_sync
+#. odoo-python
+#: code:addons/klevia_dbm_sync/models/dbm_instance.py:0
+msgid "Users synchronized"
+msgstr "Utilisateurs synchronisés"

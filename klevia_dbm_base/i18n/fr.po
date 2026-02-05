@@ -1,0 +1,510 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* klevia_dbm_base
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-05 22:59+0000\n"
+"PO-Revision-Date: 2026-02-05 22:59+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+msgid "Access URL"
+msgstr "URL d’accès"
+
+msgid "Access URL must start with http:// or https://"
+msgstr "L’URL d’accès doit commencer par http:// ou https://"
+
+msgid "Action Needed"
+msgstr "Action requise"
+
+msgid "Active"
+msgstr "Actif"
+
+msgid "Activities"
+msgstr "Activités"
+
+msgid "Activity Exception Decoration"
+msgstr "Décoration d’exception d’activité"
+
+msgid "Activity State"
+msgstr "État de l’activité"
+
+msgid "Activity Type Icon"
+msgstr "Icône du type d’activité"
+
+msgid "Administrator"
+msgstr "Administrateur"
+
+msgid "All Requests"
+msgstr "Toutes les demandes"
+
+msgid "Archived"
+msgstr "Archivé"
+
+msgid "Assigned To"
+msgstr "Assigné à"
+
+msgid "Attach a VPN profile (e.g. .ovpn)."
+msgstr "Joindre un profil VPN (par ex. .ovpn)."
+
+msgid "Attachment Count"
+msgstr "Nombre de pièces jointes"
+
+msgid "Available Hostings"
+msgstr "Hébergements disponibles"
+
+msgid "Blue"
+msgstr "Bleu"
+
+msgid "By Types"
+msgstr "Par types"
+
+msgid "Categories"
+msgstr "Catégories"
+
+msgid "Category"
+msgstr "Catégorie"
+
+msgid "Client"
+msgstr "Client"
+
+msgid "Close"
+msgstr "Fermer"
+
+msgid "Code"
+msgstr "Code"
+
+msgid "Color"
+msgstr "Couleur"
+
+msgid "Company"
+msgstr "Société"
+
+msgid "Configuration"
+msgstr "Configuration"
+
+msgid "Confirm"
+msgstr "Confirmer"
+
+msgid "Contact"
+msgstr "Contact"
+
+msgid "Create Request"
+msgstr "Créer une demande"
+
+msgid "Create Request Wizard"
+msgstr "Assistant de création de demande"
+
+msgid "Created by"
+msgstr "Créé par"
+
+msgid "Created on"
+msgstr "Créé le"
+
+msgid "Currency"
+msgstr "Devise"
+
+msgid "Custom"
+msgstr "Personnalisé"
+
+msgid "Customer"
+msgstr "Client"
+
+msgid "Dashboard"
+msgstr "Tableau de bord"
+
+msgid "Database Category"
+msgstr "Catégorie de base de données"
+
+msgid "Database Manager"
+msgstr "Gestionnaire de bases de données"
+
+msgid "Database Server"
+msgstr "Serveur de base de données"
+
+msgid "Databases"
+msgstr "Bases de données"
+
+msgid "Date Deadline"
+msgstr "Date d’échéance"
+
+msgid "Delete"
+msgstr "Supprimer"
+
+msgid "Description"
+msgstr "Description"
+
+msgid "Display Name"
+msgstr "Nom affiché"
+
+msgid "Duplicate"
+msgstr "Dupliquer"
+
+msgid "Explain your request here..."
+msgstr "Expliquez votre demande ici…"
+
+msgid "Favorite Users"
+msgstr "Utilisateurs favoris"
+
+msgid "Favorites"
+msgstr "Favoris"
+
+msgid "Fold"
+msgstr "Replier"
+
+msgid "Folded in Kanban"
+msgstr "Replié dans le Kanban"
+
+msgid "Followers"
+msgstr "Abonnés"
+
+msgid "Followers (Partners)"
+msgstr "Abonnés (contacts)"
+
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "Icône Font Awesome (ex. fa-tasks)"
+
+msgid "GitHub"
+msgstr "GitHub"
+
+msgid "GitHub URL"
+msgstr "URL GitHub"
+
+msgid "Green"
+msgstr "Vert"
+
+msgid "Grey"
+msgstr "Gris"
+
+msgid "Has Message"
+msgstr "A des messages"
+
+msgid "Helps you manage your databases, servers, etc..."
+msgstr "Vous aide à gérer vos bases de données, serveurs, etc."
+
+msgid "High priority"
+msgstr "Priorité élevée"
+
+msgid "Hosting"
+msgstr "Hébergement"
+
+msgid "Hostings"
+msgstr "Hébergements"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "Icon"
+msgstr "Icône"
+
+msgid "Icon to indicate an exception activity."
+msgstr "Icône indiquant une activité en exception."
+
+msgid "If True, record cannot be deleted (only archived)."
+msgstr "Si activé, l’enregistrement ne peut pas être supprimé (uniquement archivé)."
+
+msgid "If checked, new messages require your attention."
+msgstr "Si coché, de nouveaux messages requièrent votre attention."
+
+msgid "If checked, some messages have a delivery error."
+msgstr "Si coché, certains messages ont une erreur de distribution."
+
+msgid "If enabled, instances on this hosting can store SSH/VPN details."
+msgstr "Si activé, les instances sur cet hébergement peuvent stocker des informations SSH/VPN."
+
+msgid "Infos"
+msgstr "Informations"
+
+msgid "Install"
+msgstr "Installation"
+
+msgid "Installation"
+msgstr "Installation"
+
+msgid "Installation Requests"
+msgstr "Demandes d’installation"
+
+msgid "Installations"
+msgstr "Installations"
+
+msgid "Instance"
+msgstr "Instance"
+
+msgid "Instance Stage"
+msgstr "Étape de l’instance"
+
+msgid "Instance Stages"
+msgstr "Étapes des instances"
+
+msgid "Instance Tag"
+msgstr "Tag d’instance"
+
+msgid "Instance Version"
+msgstr "Version de l’instance"
+
+msgid "Instances"
+msgstr "Instances"
+
+msgid "Is Favorite"
+msgstr "Est favori"
+
+msgid "Is Follower"
+msgstr "Est abonné"
+
+msgid "Last Updated by"
+msgstr "Dernière modification par"
+
+msgid "Last Updated on"
+msgstr "Dernière modification le"
+
+msgid "License Type"
+msgstr "Type de licence"
+
+msgid "Low priority"
+msgstr "Priorité basse"
+
+msgid "Mark Installed"
+msgstr "Marquer comme installé"
+
+msgid "Mark Upgraded"
+msgstr "Marquer comme mis à jour"
+
+msgid "Medium priority"
+msgstr "Priorité moyenne"
+
+msgid "Message Delivery error"
+msgstr "Erreur de distribution du message"
+
+msgid "Messages"
+msgstr "Messages"
+
+msgid "My Activity Deadline"
+msgstr "Échéance de mon activité"
+
+msgid "Name"
+msgstr "Nom"
+
+msgid "Name of VPN profile"
+msgstr "Nom du profil VPN"
+
+msgid "New Request"
+msgstr "Nouvelle demande"
+
+msgid "New request..."
+msgstr "Nouvelle demande…"
+
+msgid "Next Activity Deadline"
+msgstr "Prochaine échéance d’activité"
+
+msgid "Next Activity Summary"
+msgstr "Résumé de la prochaine activité"
+
+msgid "Next Activity Type"
+msgstr "Type de prochaine activité"
+
+msgid "No instance provided."
+msgstr "Aucune instance fournie."
+
+msgid "Notes"
+msgstr "Notes"
+
+msgid "Number of Actions"
+msgstr "Nombre d’actions"
+
+msgid "Number of errors"
+msgstr "Nombre d’erreurs"
+
+msgid "Number of messages requiring action"
+msgstr "Nombre de messages nécessitant une action"
+
+msgid "Number of messages with delivery error"
+msgstr "Nombre de messages avec erreur de distribution"
+
+msgid "Odoo.SH"
+msgstr "Odoo.SH"
+
+msgid "Odoo.SH Instance"
+msgstr "Instance Odoo.SH"
+
+msgid "Odoo.SH URL"
+msgstr "URL Odoo.SH"
+
+msgid "On-Premise"
+msgstr "Sur site"
+
+msgid "Open Instance"
+msgstr "Ouvrir l’instance"
+
+msgid "Other"
+msgstr "Autre"
+
+msgid "Priority"
+msgstr "Priorité"
+
+msgid "Protected"
+msgstr "Protégé"
+
+msgid "Red"
+msgstr "Rouge"
+
+msgid "Request"
+msgstr "Demande"
+
+msgid "Request Stage"
+msgstr "Étape de la demande"
+
+msgid "Request Type"
+msgstr "Type de demande"
+
+msgid "Requests"
+msgstr "Demandes"
+
+msgid "Responsible"
+msgstr "Responsable"
+
+msgid "Responsible User"
+msgstr "Utilisateur responsable"
+
+msgid "SSH Host"
+msgstr "Hôte SSH"
+
+msgid "SSH Notes"
+msgstr "Notes SSH"
+
+msgid "SSH Port"
+msgstr "Port SSH"
+
+msgid "SSH User"
+msgstr "Utilisateur SSH"
+
+msgid "Sequence"
+msgstr "Séquence"
+
+msgid "Server"
+msgstr "Serveur"
+
+msgid "Servers"
+msgstr "Serveurs"
+
+msgid "Stage"
+msgstr "Étape"
+
+msgid "Standard"
+msgstr "Standard"
+
+msgid "Status"
+msgstr "Statut"
+
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"Statut basé sur les activités\n"
+"En retard : la date d’échéance est dépassée\n"
+"Aujourd’hui : l’activité est prévue aujourd’hui\n"
+"Planifié : activités futures."
+
+msgid "Subscription Code"
+msgstr "Code d’abonnement"
+
+msgid "Tags"
+msgstr "Tags"
+
+msgid "Target Odoo Version"
+msgstr "Version Odoo cible"
+
+msgid "Technical Name"
+msgstr "Nom technique"
+
+msgid "Technical Notes"
+msgstr "Notes techniques"
+
+msgid "Technical Responsible"
+msgstr "Responsable technique"
+
+msgid "Technical code (e.g. odoo_com, odoo_sh, on_prem). Useful for logic."
+msgstr "Code technique (ex. odoo_com, odoo_sh, on_prem). Utile pour la logique."
+
+msgid ""
+"This record is protected and cannot be deleted. Archive it instead. (%s)"
+msgstr ""
+"Cet enregistrement est protégé et ne peut pas être supprimé. Archivez-le à la place. (%s)"
+
+msgid "This tag already exists."
+msgstr "Ce tag existe déjà."
+
+msgid "This version already exists."
+msgstr "Cette version existe déjà."
+
+msgid "To Install"
+msgstr "À installer"
+
+msgid "To Upgrade"
+msgstr "À mettre à jour"
+
+msgid "To install"
+msgstr "À installer"
+
+msgid "To upgrade"
+msgstr "À mettre à jour"
+
+msgid "Type of the exception activity on record."
+msgstr "Type d’activité en exception sur l’enregistrement."
+
+msgid "URL"
+msgstr "URL"
+
+msgid "Upgrade"
+msgstr "Mise à jour"
+
+msgid "Upgrade / Migration"
+msgstr "Mise à jour / Migration"
+
+msgid "Upgrade Requests"
+msgstr "Demandes de mise à jour"
+
+msgid "Upgrades"
+msgstr "Mises à jour"
+
+msgid "Urgent"
+msgstr "Urgent"
+
+msgid "Used to generate conventions (e.g. GitHub repo)."
+msgstr "Utilisé pour générer des conventions (ex. dépôt GitHub)."
+
+msgid "User: all features"
+msgstr "Utilisateur : toutes les fonctionnalités"
+
+msgid "User: limited access"
+msgstr "Utilisateur : accès limité"
+
+msgid "VPN Profile"
+msgstr "Profil VPN"
+
+msgid "VPN Required"
+msgstr "VPN requis"
+
+msgid "Version"
+msgstr "Version"
+
+msgid "Versions"
+msgstr "Versions"
+
+msgid "Write any technical informations here..."
+msgstr "Renseignez ici toute information technique…"
+
+msgid "Yellow"
+msgstr "Jaune"
+
+msgid "protected.record.mixin"
+msgstr "protected.record.mixin"

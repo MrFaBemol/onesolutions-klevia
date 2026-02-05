@@ -1,0 +1,150 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* klevia_dbm_cloc
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-05 22:59+0000\n"
+"PO-Revision-Date: 2026-02-05 22:59+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: klevia_dbm_cloc
+#: model_terms:ir.ui.view,arch_db:klevia_dbm_cloc.dbm_instance_form
+msgid "CLOC"
+msgstr "CLOC"
+
+#. module: klevia_dbm_cloc
+#: model:ir.actions.act_window,name:klevia_dbm_cloc.action_dbm_cloc_pricing
+#: model:ir.ui.menu,name:klevia_dbm_cloc.menu_dbm_cloc_pricing
+msgid "CLOC Pricing"
+msgstr "Tarification CLOC"
+
+#. module: klevia_dbm_cloc
+#: model:ir.model,name:klevia_dbm_cloc.model_dbm_cloc_pricing
+msgid "CLOC Pricing Tier"
+msgstr "Palier de tarification CLOC"
+
+#. module: klevia_dbm_cloc
+#: model:ir.model.fields,field_description:klevia_dbm_cloc.field_dbm_instance__cloc_line_ids
+msgid "Cloc Line"
+msgstr "Ligne CLOC"
+
+#. module: klevia_dbm_cloc
+#: model:ir.model.fields,field_description:klevia_dbm_cloc.field_dbm_instance__cloc_total
+msgid "Cloc Total"
+msgstr "CLOC total"
+
+#. module: klevia_dbm_cloc
+#: model:ir.model.fields,field_description:klevia_dbm_cloc.field_dbm_cloc_pricing__create_uid
+#: model:ir.model.fields,field_description:klevia_dbm_cloc.field_dbm_instance_cloc__create_uid
+msgid "Created by"
+msgstr "Créé par"
+
+#. module: klevia_dbm_cloc
+#: model:ir.model.fields,field_description:klevia_dbm_cloc.field_dbm_cloc_pricing__create_date
+#: model:ir.model.fields,field_description:klevia_dbm_cloc.field_dbm_instance_cloc__create_date
+msgid "Created on"
+msgstr "Créé le"
+
+#. module: klevia_dbm_cloc
+#: model:ir.model.fields,field_description:klevia_dbm_cloc.field_dbm_cloc_pricing__display_name
+#: model:ir.model.fields,field_description:klevia_dbm_cloc.field_dbm_instance__display_name
+#: model:ir.model.fields,field_description:klevia_dbm_cloc.field_dbm_instance_cloc__display_name
+msgid "Display Name"
+msgstr "Nom affiché"
+
+#. module: klevia_dbm_cloc
+#: model:ir.model.fields,field_description:klevia_dbm_cloc.field_dbm_instance__cloc_cost_estimated
+msgid "Estimated Maintenance Cost"
+msgstr "Coût de maintenance estimé"
+
+#. module: klevia_dbm_cloc
+#: model:ir.model.fields,field_description:klevia_dbm_cloc.field_dbm_cloc_pricing__id
+#: model:ir.model.fields,field_description:klevia_dbm_cloc.field_dbm_instance__id
+#: model:ir.model.fields,field_description:klevia_dbm_cloc.field_dbm_instance_cloc__id
+msgid "ID"
+msgstr "ID"
+
+#. module: klevia_dbm_cloc
+#: model:ir.model.fields,field_description:klevia_dbm_cloc.field_dbm_instance_cloc__include_in_cloc
+msgid "Include"
+msgstr "Inclure"
+
+#. module: klevia_dbm_cloc
+#: model:ir.model,name:klevia_dbm_cloc.model_dbm_instance
+#: model:ir.model.fields,field_description:klevia_dbm_cloc.field_dbm_instance_cloc__instance_id
+msgid "Instance"
+msgstr "Instance"
+
+#. module: klevia_dbm_cloc
+#: model:ir.model,name:klevia_dbm_cloc.model_dbm_instance_cloc
+msgid "Instance CLOC"
+msgstr "CLOC de l’instance"
+
+#. module: klevia_dbm_cloc
+#. odoo-python
+#: code:addons/klevia_dbm_cloc/models/dbm_instance.py:0
+msgid "Invalid CLOC format."
+msgstr "Format CLOC invalide."
+
+#. module: klevia_dbm_cloc
+#: model:ir.model.fields,field_description:klevia_dbm_cloc.field_dbm_cloc_pricing__write_uid
+#: model:ir.model.fields,field_description:klevia_dbm_cloc.field_dbm_instance_cloc__write_uid
+msgid "Last Updated by"
+msgstr "Dernière modification par"
+
+#. module: klevia_dbm_cloc
+#: model:ir.model.fields,field_description:klevia_dbm_cloc.field_dbm_cloc_pricing__write_date
+#: model:ir.model.fields,field_description:klevia_dbm_cloc.field_dbm_instance_cloc__write_date
+msgid "Last Updated on"
+msgstr "Dernière modification le"
+
+#. module: klevia_dbm_cloc
+#: model:ir.model.fields,field_description:klevia_dbm_cloc.field_dbm_instance_cloc__loc
+msgid "Lines of Code"
+msgstr "Lignes de code"
+
+#. module: klevia_dbm_cloc
+#: model:ir.model.fields,field_description:klevia_dbm_cloc.field_dbm_instance_cloc__module_name
+msgid "Module Name"
+msgstr "Nom du module"
+
+#. module: klevia_dbm_cloc
+#. odoo-python
+#: code:addons/klevia_dbm_cloc/models/dbm_instance.py:0
+msgid "No CLOC information found on this database."
+msgstr "Aucune information CLOC trouvée sur cette base de données."
+
+#. module: klevia_dbm_cloc
+#: model:ir.model.fields,field_description:klevia_dbm_cloc.field_dbm_cloc_pricing__price_per_loc
+msgid "Price per LOC"
+msgstr "Prix par ligne de code"
+
+#. module: klevia_dbm_cloc
+#: model_terms:ir.ui.view,arch_db:klevia_dbm_cloc.dbm_instance_form
+msgid "Recompute Cost"
+msgstr "Recalculer le coût"
+
+#. module: klevia_dbm_cloc
+#: model_terms:ir.ui.view,arch_db:klevia_dbm_cloc.dbm_instance_form
+msgid "Synchronize CLOC"
+msgstr "Synchroniser le CLOC"
+
+#. module: klevia_dbm_cloc
+#. odoo-python
+#: code:addons/klevia_dbm_cloc/models/dbm_instance.py:0
+msgid "Technical name is required to compute CLOC inclusion rules."
+msgstr "Le nom technique est requis pour calculer les règles d’inclusion CLOC."
+
+#. module: klevia_dbm_cloc
+#: model:ir.model.fields,field_description:klevia_dbm_cloc.field_dbm_cloc_pricing__max_loc
+msgid "Up to LOC"
+msgstr "Jusqu’à LOC"
