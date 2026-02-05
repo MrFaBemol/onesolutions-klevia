@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="dbm_request_wizard_form" model="ir.ui.view">
+        <field name="name">dbm.request.wizard.form</field>
+        <field name="model">dbm.request.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <field name="request_type" widget="selection_badge"/>
+                    <h1 class="d-flex w-100">
+                        <field name="name" options="{'line_breaks': False}" widget="text" class="o_task_name text-truncate w-md-75 w-100 pe-2" placeholder="New request..." />
+                    </h1>
+                    <group>
+                        <group>
+                            <field name="instance_id" invisible="1" />
+                            <field name="user_id" widget="many2one_avatar_user" />
+                            <field name="version_id" />
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="description" string="Description">
+                            <field name="description" nolabel="1" colspan="2" />
+                        </page>
+                    </notebook>
+                </sheet>
+                <footer>
+                    <button type="object" name="action_confirm" string="Confirm" class="btn-primary" />
+                    <button string="Close" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+
+</odoo>

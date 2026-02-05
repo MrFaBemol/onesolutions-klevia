@@ -31,24 +31,44 @@
                     <field name="stage_id"/>
                     <field name="name"/>
                     <field name="instance_id"/>
+                    <field name="instance_partner_id"/>
+                    <field name="priority"/>
                     <field name="user_id"/>
                     <field name="request_type"/>
                     <templates>
+                        <t t-name="menu" t-if="!selection_mode">
+                            <a class="dropdown-item" role="menuitem" type="object" name="copy">Duplicate</a>
+                            <div role="separator" class="dropdown-divider"/>
+                            <a class="dropdown-item text-danger" role="menuitem" type="object" name="unlink">Delete</a>
+                        </t>
+
                         <t t-name="card">
-                            <div class="oe_kanban_global_click">
-                                <strong><field name="name"/></strong>
-                                <div>
-                                    <field name="instance_id"/>
+                            <main>
+                                <div class="oe_kanban_global_click">
+                                    <strong>
+                                        <field name="name"/>
+                                    </strong>
+
+
+                                    <div  class="text-muted d-flex flex-column">
+                                        <field name="instance_id" />
+                                    </div>
+                                    <div class="">
+                                        <field t-if="record.date_deadline.raw_value" name="date_deadline" widget="remaining_days"/>
+                                    </div>
+                                    <div class="text-end">
+                                        <field name="request_type" widget="badge"/>
+                                    </div>
                                 </div>
-                                <div>
-                                    <field name="user_id"/>
+                            </main>
+                            <footer class="mt-auto pt-0">
+                                <div class="d-flex align-items-center gap-1">
+                                    <field name="activity_ids" widget="kanban_activity" style="margin-right: 2px"/>
+                                    <field name="priority" class="pt-1" widget="priority"/>
                                 </div>
-                                <div>
-                                    <field name="request_type"/>
+                                <div class="d-flex ms-auto align-items-center">
+                                    <field name="user_id" widget="many2one_avatar_user" domain="[('share', '=', False)]" class="me-1"/>
                                 </div>
-                            </div>
-                            <footer class="pt-0">
-                                <field name="request_type"/>
                             </footer>
                         </t>
                     </templates>
@@ -62,15 +82,34 @@
             <field name="model">dbm.request</field>
             <field name="arch" type="xml">
                 <form>
+                    <header>
+                        <field name="stage_id" widget="statusbar" options="{'clickable': '1'}" />
+                    </header>
                     <sheet>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h1 class="d-flex w-100">
+                                <field name="name" options="{'line_breaks': False}" widget="text" class="o_task_name text-truncate w-md-75 w-100 pe-2" placeholder="New request..."/>
+                            </h1>
+                            <div class="d-flex justify-content-end align-items-center px-1">
+                                <field name="priority" class="h3 pe-2" widget="priority_switch"/>
+                            </div>
+                        </div>
                         <group>
-                            <field name="name"/>
-                            <field name="request_type"/>
-                            <field name="instance_id"/>
-                            <field name="user_id"/>
-                            <field name="version_id"/>
+                            <group>
+                                <field name="instance_id"/>
+                                <field name="request_type"/>
+                                <field name="version_id"/>
+                            </group>
+                            <group>
+                                <field name="user_id" widget="many2one_avatar_user" />
+                                <field name="date_deadline"/>
+                            </group>
                         </group>
-                        <field name="description"/>
+                        <notebook>
+                            <page name="description" string="Description">
+                                <field name="description" placeholder="Explain your request here..." nolabel="1" colspan="2" />
+                            </page>
+                        </notebook>
                     </sheet>
                     <chatter/>
                 </form>

@@ -5,10 +5,10 @@ class DbmRequest(models.Model):
     _name = "dbm.request"
     _inherit = ["mail.thread", "mail.activity.mixin"]
     _description = "Request"
-    _order = "id desc"
+    _order = "priority desc, create_date desc"
 
     active = fields.Boolean(default=True)
-    name = fields.Char(required=True, default=lambda self: _("Request"), tracking=True)
+    name = fields.Char(required=True, tracking=True)
 
     request_type = fields.Selection(
         selection=[
@@ -28,6 +28,7 @@ class DbmRequest(models.Model):
         ondelete="cascade",
         tracking=True,
     )
+    instance_partner_id = fields.Many2one(related="instance_id.partner_id", store=True)
 
     user_id = fields.Many2one(
         "res.users",
@@ -38,6 +39,13 @@ class DbmRequest(models.Model):
     )
 
     description = fields.Text(tracking=True)
+    priority = fields.Selection([
+        ('0', 'Low priority'),
+        ('1', 'Medium priority'),
+        ('2', 'High priority'),
+        ('3', 'Urgent'),
+    ], default='0', index=True, string="Priority", tracking=True)
+    date_deadline = fields.Date(tracking=True)
 
     version_id = fields.Many2one(
         "dbm.version",

@@ -17,8 +17,10 @@
             <!-- REQUESTS -->
             <menuitem id="menu_dbm_requests" name="Requests" sequence="20">
                 <menuitem id="menu_dbm_requests_all" name="All Requests" action="action_dbm_request_all" sequence="1"/>
-                <menuitem id="menu_dbm_requests_install" name="Install" action="action_dbm_request_install" sequence="10"/>
-                <menuitem id="menu_dbm_requests_upgrade" name="Upgrade" action="action_dbm_request_upgrade" sequence="20"/>
+                <menuitem id="menu_dbm_requests_by_type" name="By Types" sequence="10">
+                    <menuitem id="menu_dbm_requests_install" name="Install" action="action_dbm_request_install" sequence="10"/>
+                    <menuitem id="menu_dbm_requests_upgrade" name="Upgrade" action="action_dbm_request_upgrade" sequence="20"/>
+                </menuitem>
             </menuitem>
 
 

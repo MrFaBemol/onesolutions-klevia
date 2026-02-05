@@ -1,0 +1,141 @@
+<odoo>
+    <data>
+
+        <record id="dbm_request_form_dev_inherit" model="ir.ui.view">
+            <field name="name">dbm.request.form.dev</field>
+            <field name="model">dbm.request</field>
+            <field name="inherit_id" ref="klevia_dbm_base.dbm_request_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//page[@name='description']" position="attributes">
+                    <attribute name="invisible">request_type == 'dev'</attribute>
+                </xpath>
+
+
+
+                <xpath expr="//notebook" position="inside">
+                    <page string="Estimation Summary" invisible="request_type != 'dev'">
+                        <group>
+                            <group>
+                                <field name="reliability" widget="percentage" />
+                            </group>
+                            <group invisible="1">
+                                <field name="time_total" readonly="1"/>
+                                <field name="time_min" readonly="1"/>
+                                <field name="time_max" readonly="1"/>
+                                <field name="maintenance_loc_min" readonly="1"/>
+                                <field name="maintenance_loc_max" readonly="1"/>
+                            </group>
+                        </group>
+                        <separator string="Summary" />
+                        <field name="estimation_report_html" nolabel="1" colspan="2"/>
+                    </page>
+
+                    <page name="description" string="Specification" invisible="request_type != 'dev'">
+                        <field name="description" placeholder="Explain your request here..." nolabel="1" colspan="2" />
+                    </page>
+
+                    <!-- DATA MODEL -->
+                    <page string="Data Model" invisible="request_type != 'dev'">
+                        <group>
+                            <field name="time_model" readonly="1" widget="float_time" />
+                        </group>
+                        <field name="model_line_ids" domain="[('line_type','=','model')]" context="{'default_line_type':'model'}">
+                            <list editable="bottom">
+                                <field name="line_type" column_invisible="1" />
+                                <field name="description"/>
+                                <field name="time_estimated" widget="float_time" />
+                            </list>
+                        </field>
+                    </page>
+
+                    <!-- BUSINESS LOGIC -->
+                    <page string="Business Logic" invisible="request_type != 'dev'">
+                        <group>
+                            <field name="time_logic" readonly="1" widget="float_time" />
+                        </group>
+                        <field name="logic_line_ids" domain="[('line_type','=','logic')]" context="{'default_line_type':'logic'}">
+                            <list editable="bottom">
+                                <field name="line_type" column_invisible="1" />
+                                <field name="description"/>
+                                <field name="time_estimated" widget="float_time" />
+                            </list>
+                        </field>
+                    </page>
+
+                    <!-- VIEWS -->
+                    <page string="Views" invisible="request_type != 'dev'">
+                        <group>
+                            <field name="time_view" readonly="1" widget="float_time" />
+                        </group>
+                        <field name="view_line_ids" domain="[('line_type','=','view')]" context="{'default_line_type':'view'}">
+                            <list editable="bottom">
+                                <field name="line_type" column_invisible="1" />
+                                <field name="description"/>
+                                <field name="time_estimated" widget="float_time" />
+                            </list>
+                        </field>
+                    </page>
+
+                    <!-- SECURITY -->
+                    <page string="Security" invisible="request_type != 'dev'">
+                        <group>
+                            <field name="time_security" readonly="1" widget="float_time" />
+                        </group>
+                        <field name="security_line_ids" domain="[('line_type','=','security')]" context="{'default_line_type':'security'}">
+                            <list editable="bottom">
+                                <field name="line_type" column_invisible="1" />
+                                <field name="description"/>
+                                <field name="time_estimated" widget="float_time" />
+                            </list>
+                        </field>
+                    </page>
+
+                    <!-- REPORTS -->
+                    <page string="Reports" invisible="request_type != 'dev'">
+                        <group>
+                            <field name="time_report" readonly="1" widget="float_time" />
+                        </group>
+                        <field name="report_line_ids" domain="[('line_type','=','report')]" context="{'default_line_type':'report'}">
+                            <list editable="bottom">
+                                <field name="line_type" column_invisible="1" />
+                                <field name="description"/>
+                                <field name="time_estimated" widget="float_time" />
+                            </list>
+                        </field>
+                    </page>
+
+                    <!-- OWL / JS -->
+                    <page string="OWL / JS" invisible="request_type != 'dev'">
+                        <group>
+                            <field name="time_owl" readonly="1" widget="float_time" />
+                        </group>
+                        <field name="owl_line_ids" domain="[('line_type','=','owl')]" context="{'default_line_type':'owl'}">
+                            <list editable="bottom">
+                                <field name="line_type" column_invisible="1" />
+                                <field name="description"/>
+                                <field name="time_estimated" widget="float_time" />
+                            </list>
+                        </field>
+                    </page>
+
+                </xpath>
+
+            </field>
+        </record>
+
+
+
+
+
+        <record id="action_dbm_request_dev" model="ir.actions.act_window">
+            <field name="name">Dev Requests</field>
+            <field name="res_model">dbm.request</field>
+            <field name="view_mode">kanban,form</field>
+            <field name="domain">[('request_type','=','dev')]</field>
+            <field name="context">{'group_expand': True}</field>
+            <field name="search_view_id" ref="klevia_dbm_base.dbm_request_search"/>
+        </record>
+
+    </data>
+</odoo>

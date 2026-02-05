@@ -1,8 +1,9 @@
 {
     'name': "Klevia - Database Manager",
     'category': "Services/Technical",
-    'version': "19.0.1.0.3",
+    'version': "19.0.1.0.4",
     'installable': True,
+    'application': True,
 
     'license': "OPL-1",
     'author': "OneSolutions Klevia SA - Gautier Casabona",
@@ -29,6 +30,9 @@
         'views/dbm_server.xml',
         'views/dbm_tag.xml',
         'views/dbm_version.xml',
+
+        # Wizards
+        'wizards/dbm_request_wizard.xml',
 
         # Reports
 

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="dbm_request_stage_in_spec" model="dbm.request.stage">
+            <field name="name">Spec</field>
+            <field name="sequence">20</field>
+            <field name="protected" eval="True" />
+        </record>
+
+    </data>
+</odoo>

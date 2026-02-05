@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+            <!-- REQUESTS -->
+            <menuitem id="menu_dbm_requests_dev" name="Developments" action="action_dbm_request_dev" parent="klevia_dbm_base.menu_dbm_requests_by_type" sequence="30"/>
+
+
+    </data>
+</odoo>
