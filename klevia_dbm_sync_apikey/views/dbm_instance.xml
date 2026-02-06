@@ -6,11 +6,12 @@
         <field name="model">dbm.instance</field>
         <field name="inherit_id" ref="klevia_dbm_sync.dbm_instance_form" />
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='api_password']" position="replace">
-                <label for="api_password"/>
-                <div class="o_row">
-                    <field name="api_password" password="True" class="oe_inline"/>
-                    <button string="Generate API Key" type="object" name="action_generate_api_key" invisible="api_password" class="oe_inline btn-primary" />
+
+            <xpath expr="//field[@name='api_username']" position="replace">
+                <label for="api_username"/>
+                <div class="o_row" >
+                    <field name="api_username" class="oe_inline"/>
+                    <button string="Generate API Key" type="object" name="action_generate_api_key" invisible="not api_username or api_password" class="oe_inline btn-primary" />
                 </div>
             </xpath>
         </field>

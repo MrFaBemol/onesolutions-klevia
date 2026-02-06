@@ -156,6 +156,21 @@ class DbmInstance(models.Model):
     vpn_profile_file_name = fields.Char(string="Name of VPN profile")
 
 
+    # -------------------------
+    # Requests
+    # -------------------------
+    request_count = fields.Integer(
+        string="Requests",
+        compute="_compute_request_count",
+    )
+
+    def _compute_request_count(self):
+        Request = self.env["dbm.request"]
+        for rec in self:
+            rec.request_count = Request.search_count([
+                ("instance_id", "=", rec.id)
+            ])
+
     @api.depends('hosting_id')
     def _compute_is_odoo_sh(self):
         odoo_sh_hosting = self.env.ref('klevia_dbm_base.dbm_hosting_odoo_sh', raise_if_not_found=False)

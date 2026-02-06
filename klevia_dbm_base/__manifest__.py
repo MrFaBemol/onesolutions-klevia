@@ -1,7 +1,7 @@
 {
     'name': "Klevia - Database Manager",
     'category': "Services/Technical",
-    'version': "19.0.1.0.5",
+    'version': "19.0.1.0.6",
     'installable': True,
     'application': True,
 
@@ -22,11 +22,11 @@
         'security/ir.model.access.csv',
 
         # Views
+        'views/dbm_request.xml',    # Need this request file before for smart button action
         'views/dbm_category.xml',
         'views/dbm_hosting.xml',
         'views/dbm_instance.xml',
         'views/dbm_instance_stage.xml',
-        'views/dbm_request.xml',
         'views/dbm_server.xml',
         'views/dbm_tag.xml',
         'views/dbm_version.xml',

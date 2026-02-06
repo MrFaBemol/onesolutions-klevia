@@ -117,6 +117,17 @@
                     </header>
 
                     <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button
+                                type="action"
+                                name="%(action_dbm_request_from_instance)d"
+                                class="oe_stat_button"
+                                icon="fa-wrench"
+                            >
+                                <field name="request_count" widget="statinfo" string="Requests"/>
+                            </button>
+                        </div>
+
                         <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/>
                         <widget name="web_ribbon" title="To install" bg_color="text-bg-info" invisible="not to_install"/>
                         <widget name="web_ribbon" title="To upgrade" bg_color="text-bg-info" invisible="not to_upgrade"/>

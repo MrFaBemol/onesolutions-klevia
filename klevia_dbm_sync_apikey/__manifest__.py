@@ -1,7 +1,7 @@
 {
     'name': "Klevia - Database Manager Generate API Key for Sync",
     'category': "Technical",
-    'version': "19.0.1.0.2",
+    'version': "19.0.1.0.3",
     'installable': True,
     'sequence': 1,
 

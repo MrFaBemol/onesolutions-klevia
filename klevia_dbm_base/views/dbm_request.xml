@@ -143,6 +143,15 @@
         </record>
 
 
+<!--        SMART BUTTON ACTION-->
+        <record id="action_dbm_request_from_instance" model="ir.actions.act_window">
+            <field name="name">Requests</field>
+            <field name="res_model">dbm.request</field>
+            <field name="view_mode">kanban,form</field>
+            <field name="domain">[('instance_id', '=', active_id)]</field>
+            <field name="context">{'default_instance_id': active_id}</field>
+        </record>
+
 
     </data>
 </odoo>

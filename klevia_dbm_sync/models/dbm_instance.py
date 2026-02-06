@@ -113,7 +113,10 @@ class DbmInstance(models.Model):
 
         try:
             remote_users = env["res.users"].search_read(
-                [("active", "=", True)],
+                [
+                    ("active", "=", True),
+                    ('share', '=', False),
+                ],
                 ["id", "name", "login", "email", "phone"]
             )
         except Exception as e:
